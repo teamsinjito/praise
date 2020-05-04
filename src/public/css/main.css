@@ -1,0 +1,197 @@
+@media screen and (min-width:768px){
+    /*　画面サイズが768pxから1024pxまではここを読み込む　*/
+    body {
+        background-image: url("../../img/bg.png");
+    }
+}
+@media screen and (max-width:767px){
+    /*　画面サイズが768pxから1024pxまではここを読み込む　*/
+    body {
+        background-image: url("../../img/bg_small.png");
+    }
+}
+html{
+    height:100%;
+}
+body{ 
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    background-attachment: fixed;
+    /* font-family:  comic Sans MS; */
+    font-family: 'Bradley Hand','Bradley Hand','Segoe Print','HanziPen TC','ヒラギノ角ゴシック','Hiragino Sans','ＭＳ ゴシック',sans-serif;
+    -webkit-appearance: none;
+    -webkit-text-size-adjust: 100%;
+    height: 100%;
+}
+/* ------------------------height:max----------------------- */
+#app{
+    height: 100%;
+}
+#app > .main-area{
+    height: 100%;
+    position: relative;
+}
+#app > .main-area > aside,
+#app > .main-area > main{
+    margin-top: 56px;
+}
+.sidebar{
+    width: auto;
+    margin: auto;
+}
+/* -----------------------common--------------------------- */
+:root {
+    --main-cm-color-white: #fff; /*フォント、背景色共通色*/
+
+    --main-fn-color-black: #444444;/*フォント色*/
+    --main-fn-color-gray: #5f5f5f;
+
+    --main-bg-color-gray: #ffffff59;/*背景色*/
+    --main-bg-side-color-gray: #ffffffcc;
+
+    --btn-bg-color-gray:#fbfbfb9e;
+    --btn-bg-hover-color-gray:#fbfbfbde;
+}
+.txt_XL{
+    font-size: calc(64px);
+}
+.txt_L{
+    font-size: calc(30px - 0.5vw);
+}
+.txt_M{
+    font-size: calc(25px - 0.5vw);
+}
+.txt_S{
+    font-size: calc(18px - 0.5vw);
+}
+.txt_XS{
+    font-size: calc(12px - 0.5vw);
+}
+
+.btn-common{
+    text-align: center;
+    white-space: normal;
+    background-color:var(--btn-bg-color-gray) ;
+    color:var(--main-fn-color-gray);  
+    border-radius: 25px;
+}
+.btn-common:hover {
+    background-color: var(--btn-bg-hover-color-gray) !important;
+    color:var(--main-fn-color-gray);
+    outline: none !important;
+    box-shadow: none;
+}
+/* -----------------------ここまでcommon--------------------- */
+.login-form-title{
+    color: var(--main-cm-color-white);
+    border: none;
+    margin: 30px 0;
+}
+.form-contents-area{
+    margin-bottom: 30px;
+}
+.login-form-control{
+    color: var(--main-cm-color-white);
+    opacity: 0.9;
+    background-color: var(--main-bg-color-gray);
+    border-radius: 25px;
+    line-height: calc(38px + 2vw);
+
+}
+.login-form-control::placeholder {
+    color: var(--main-cm-color-white);
+}
+.login-form-control:focus {
+    outline: none !important;
+    box-shadow: none;
+}
+
+/* ラベルのスタイル　*/
+.chkbox label {
+	padding-left:		38px;			
+	line-height:		30px;
+	display:		inline-block;
+    cursor:			pointer;
+    /* text-align: center; */
+	position:		relative;
+}
+
+/* ボックスのスタイル */
+.chkbox label:before {
+	content:		'';
+	width:			calc(32px - 0.5vw);		/* ボックスの横幅 */
+	height:			calc(32px - 0.5vw);			/* ボックスの縦幅 */
+	display:		inline-block;
+	position:		absolute;
+	left:			0;
+	background-color:var(--main-cm-color-white);
+	box-shadow:		inset 1px 2px 3px 0px var(--main-bg-color-gray);
+	border-radius:		6px;
+}
+
+/* チェックした時のスタイル */
+.chkbox input[type=checkbox]:checked + label:before {
+	content: '\2713';		/* チェックの文字 */ 
+	font-size: calc(30px - 0.5vw);			/* チェックのサイズ */
+	color: var(--main-fn-color-black);			/* チェックの色 */
+}
+
+
+.btn{
+    padding: 1.5vw 5vw;
+    font-size: calc(30px - 0.5vw);
+    width: 75%;
+    margin: auto;
+}
+
+/* ------------ここまでログイン画面--------- */
+
+
+
+.navbar{
+    background-color:var(--main-fn-color-gray);
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    
+}
+#app > nav >.header-fn-color,
+#app > nav >.collapse > ul > .header-fn-color{
+    color:var(--main-cm-color-white);
+}
+
+.sidebar{
+    display: block;
+    background-color:var(--main-bg-side-color-gray);
+    height:100%;
+    min-height:100%;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+}
+.side-color > label,
+.side-color > .praise_cnt > label,
+.side-color > .contents > a,
+.side-color > .other_ > i{
+    color: var(--main-fn-color-black);
+}
+
+.contents{
+    display: flex;
+    flex-direction: column;
+    border-color:var(--main-fn-color-black);
+}
+.contents > a{
+    margin-top: 10px;
+}
+.contents > a:hover{
+    color: var(--main-fn-color-black);
+}
+
+@media screen and (max-width:575px) { 
+    /*　画面サイズが575px以下はここを読み込む　*/
+.span_slice{
+    display: none;
+}
+}
