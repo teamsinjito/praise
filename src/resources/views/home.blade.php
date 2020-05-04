@@ -28,4 +28,6 @@
     <div class="bg-light"><img src={{ asset('/img/user.png')}} alt="ユーザーアイコン" class="w-100 mx-auto"></div>
     <div class="bg-light"><img src={{ asset('/img/user.png')}} alt="ユーザーアイコン" class="w-100 mx-auto"></div>
     <div class="bg-light"><img src={{ asset('/img/user.png')}} alt="ユーザーアイコン" class="w-100 mx-auto"></div>
+
+    <p>test</p>
 @endsection
