@@ -1,0 +1,195 @@
+/* @media screen and (max-width:575px){
+    .pager-btn {
+        display: none;
+    }
+    aside{
+        display: none;
+    }
+    main > .step-btn-area {
+        margin-top: 0px;
+    }
+} */
+/* ------------------------------Loading-------------------------- */
+#overlay{   
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height:100%;
+    display: none;
+    background: rgba(0,0,0,0.6);
+}
+.cv-spinner {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px var(--main-fn-color-black) solid;
+    border-top: 4px var(--main-cm-color-white) solid;
+    border-radius: 50%;
+    animation: sp-anime 0.8s infinite linear;
+}
+@keyframes sp-anime {
+    100% { 
+        transform: rotate(360deg); 
+    }
+}
+.is-hide{
+    display:none;
+}
+/* ------------------------------------------------------------- */
+.main-all-area{
+    border-radius: 50px;
+    background-color: rgba(255,255,255,0.8);
+}
+.praise-all-area{
+    padding-top: 20px;
+}
+.progress-bar-area{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.progress-bar-area > .progress{
+    width: 35%;
+}
+.progress{
+    border-radius: 0px;
+    background-color:var(--main-fn-color-black);
+    height: 0.4rem;
+}
+.progress-bar{
+    background-color:#EE82EE;
+}
+.progress-circle{
+    width: calc(50px - 0.2vw);
+    height: calc(50px - 0.2vw); 
+    background-color:var(--main-fn-color-black);
+    border-radius: 50%;
+}
+/* #progress-bar-id > .icon-area:first-child{
+    background-color: #EE82EE;
+} */
+/* -------------------------------------------------------------------- */
+.section-page{
+    left: 100%;
+}
+.praise-steps{
+    padding-top: 15px;
+}
+.to-page-area{
+    display: flex;
+}
+.to-icon-area {
+    display: none;
+}
+.to-icon-area > .section-page{
+    display: none;
+    flex-wrap: wrap;
+}
+.common-page-area-size{
+    height: 450px;
+}
+.to-icon input[type="radio"] {
+    display: none;
+}
+.to-icon > label{
+    margin: 0;
+}
+.to-icon > label >.icon-circle {
+    margin: 3px;
+    padding: 4px;
+}
+
+  /* 選択されたラジオボタンの画像の背景をオレンジ色に変える */
+.to-icon input[type="radio"]:checked + label >.icon-circle{
+    background: #EE82EE;
+}
+.icon-circle {
+    width: 70%;
+    height: 70%; 
+    border-radius: 50%;
+}
+.icon-name{
+    padding-top: -40px;
+}
+.to-icon > label >.icon-circle:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* ----------------------------------pager------------------------------------------------ */
+
+.pager-btn{
+    visibility: hidden;
+    padding: 18px 0;
+    text-align: center;
+    width: 40px;
+    height: 130px;
+    border-radius: 0%;
+    margin: 15% 0;
+
+}
+.pager-btn:hover{
+    cursor: pointer;
+}
+
+
+/* ----------------------------------prev next btn---------------------------------------- */
+.step-btn-area{
+    margin-top: 40px;
+    margin-right: 50px;
+    padding: 0;
+    display: flex;
+    line-height: 60px;
+}   
+.step-btn-area > button{
+    border-radius: 0;
+    text-align: center;
+    border-top: solid 1px var(--main-fn-color-black); 
+    border-bottom: solid 1px var(--main-fn-color-black); ;
+    border-left: double 8px var(--main-fn-color-black);
+    border-right: double 8px var(--main-fn-color-black);
+    color: var(--main-fn-color-black);
+}
+#praise-sabmit-btn{
+    display: none;
+}
+.step-btn-area > button:not(:disabled):hover{
+    cursor: pointer;
+}
+/* ------------------------------------------------------------------------------------------ */
+.cp_iptxt {
+	position: relative;
+	width: 100%;
+	margin: 40px 3%;
+}
+.cp_iptxt input[type='text'] {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0.3em;
+	padding-left: 40px;
+	letter-spacing: 1px;
+    border: 0;
+    background-color:transparent;
+}
+.cp_iptxt input[type='text']:focus {
+	outline: none;
+}
+.cp_iptxt input[type='text']:focus::after {
+	outline: none;
+}
+.cp_iptxt::after {
+	display: block;
+	width: 100%;
+	height: 4px;
+	margin-top: -1px;
+	content: '';
+	border-width: 0 0 2px 0;
+	border-style: solid;
+	border-color: var(--main-fn-color-black);
+}
