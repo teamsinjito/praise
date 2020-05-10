@@ -8,7 +8,7 @@
 @section('content')
 
     <div class="main-all-area h-100 mx-2">
-        <div class="container praise-all-area">
+        <div class="praise-all-area">
             <div class="praise-bg-area">
                 <div class="praise-area">
                     <header class="progress-bar-area mx-2" id="progress-bar-id">
@@ -49,9 +49,9 @@
                                 <section class="to-icon-area col-sm-10 col-12 active" id="praise-step-1">
                                     @foreach($users as $u)
                                         @if($loop->iteration % 6 == 1 || $loop->iteration == 1)
-                                        <div class="section-page">
+                                        <div class="section-page w-100">
                                         @endif                       
-                                        <div class="to-icon col-6 col-sm-4">
+                                        <div class="to-icon col-6 col-sm-4 h-25">
                                             <input id="user-icon-id{{ $loop->iteration }}" type="radio" class="praise-step-1" name="to_user" value="{{ $u->id }}">
                                             <label for="user-icon-id{{ $loop->iteration }}">
                                                 <img class="icon-circle" src="/storage/img/users/{{ $u->id }}.png">
@@ -67,9 +67,9 @@
                                 <section class="to-icon-area col-sm-10 col-12" id="praise-step-2">
                                     @foreach($stamps as $s)
                                         @if($loop->iteration % 6 == 1 || $loop->iteration == 1)
-                                        <div class="section-page">
+                                        <div class="section-page w-100">
                                         @endif                       
-                                        <div class="to-icon col-6 col-sm-4">
+                                        <div class="to-icon col-6 col-sm-4 h-25">
                                             <input id="stamp-icon-id{{ $loop->iteration }}" type="radio" class="praise-step-2" name="to_stamp" value="{{ $s->id }}">
                                             <label for="stamp-icon-id{{ $loop->iteration }}">
                                                 <img class="icon-circle" src="/storage/img/stamps/{{ $s->id }}.png">

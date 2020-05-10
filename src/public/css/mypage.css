@@ -1,0 +1,60 @@
+@media screen and (max-width:768px){
+    .br-iphone{
+        display: block;
+    }
+    #my-profiles > .my-icon-area > .my-icon-name > .my-icon {
+        width: 30%!important;
+    }
+}
+@media screen and (min-width:769px){
+    .br-iphone{
+        display: block;
+    }
+    #my-profiles > .my-icon-area > .my-icon-name > .my-icon {
+        width: 10%!important;
+    }
+}
+.main-all-area{
+    border-radius: 50px;
+    background-color: rgba(255,255,255,0.8);
+}
+#my-profiles > .my-icon-area{
+    display: flex;
+}
+#my-profiles > .my-icon-area > .my-icon-name {
+    display: flex;
+    align-items: center;
+}
+#my-profiles > .my-icon-area > .my-icon-name > .my-icon {
+    border-radius: 50%;
+}
+#my-profiles > .chamge-my-profile {
+    display: flex;
+    align-items: center;
+}
+.br-iphone{
+    display: none;
+}
+/* -------------------menu---------------------------------- */
+#mypage-menu-list{
+    display: flex;
+    padding: 0;
+}
+
+#mypage-menu-list li{
+    list-style: none;
+    border-bottom: solid var(--main-fn-color-black) 2px;
+    margin-top: 10px;
+    
+}
+#mypage-menu-list li a{
+    color: var(--main-fn-color-black);
+}
+#mypage-menu-list li a:hover{
+    
+    text-decoration: none;
+}
+.my-praise-datas > section{
+    display: none;
+}
+

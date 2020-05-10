@@ -22,5 +22,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/', 'HomeController@index')->name('home');
     Route::get('/praise{auth_user}', 'PraiseController@showPraiseForm')->name('praise.create');
     Route::post('/praise{auth_user}', 'PraiseController@praiseCreate');
+    Route::get('/mypage{auth_user}', 'MyPageController@showMyPageForm')->name('mypage');
 });
 

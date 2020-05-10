@@ -1,14 +1,52 @@
+@media screen and (max-width:575px) { 
+    /*　画面サイズが575px以下はここを読み込む　*/
+    .txt_XL{font-size: 26px;}
+    .txt_L{font-size: 22px;}
+    .txt_M{font-size: 17px;}
+    .txt_S{font-size:10px;}
+    .txt_XS{font-size:4px;}
+
+    .span_slice{
+        display: none;
+    }
+}@media screen and (max-width:767px){
+    /*　画面サイズが768pxから1024pxまではここを読み込む　*/
+    body {background-image: url("../../img/bg_small.png");}
+    aside{
+        display: none;
+    }
+    .txt_XL{font-size: 30px;}
+    .txt_L{font-size: 26px;}
+    .txt_M{font-size: 21px;}
+    .txt_S{font-size:14px;}
+    .txt_XS{font-size:8px;}
+}
 @media screen and (min-width:768px){
     /*　画面サイズが768pxから1024pxまではここを読み込む　*/
-    body {
-        background-image: url("../../img/bg.png");
-    }
+    body {background-image: url("../../img/bg.png");}
+
+    .txt_XL{font-size: 34px;}
+    .txt_L{font-size: 30px;}
+    .txt_M{font-size: 25px;}
+    .txt_S{font-size:18px;}
+    .txt_XS{font-size:12px;}
 }
-@media screen and (max-width:767px){
-    /*　画面サイズが768pxから1024pxまではここを読み込む　*/
-    body {
-        background-image: url("../../img/bg_small.png");
-    }
+@media screen and (min-width:1500px){
+    .txt_XL{font-size: 37px;}
+    .txt_L{font-size: 33px;}
+    .txt_M{font-size: 28px;}
+    .txt_S{font-size:21px;}
+    .txt_XS{font-size:15px;}
+}
+@media screen and (min-width:2400px){
+    .txt_XL{font-size: 41px;}
+    .txt_L{font-size: 37px;}
+    .txt_M{font-size: 32px;}
+    .txt_S{font-size:25px;}
+    .txt_XS{font-size:19px;}
+}
+.title_txt{
+    font-size: 30px;
 }
 html{
     height:100%;
@@ -34,10 +72,9 @@ body{
 }
 #app > .main-area > aside,
 #app > .main-area > main{
-    margin-top: 56px;
+    margin-top: 64px;
 }
 .sidebar{
-    width: auto;
     margin: auto;
 }
 /* -----------------------common--------------------------- */
@@ -53,21 +90,7 @@ body{
     --btn-bg-color-gray:#fbfbfb9e;
     --btn-bg-hover-color-gray:#fbfbfbde;
 }
-.txt_XL{
-    font-size: calc(64px);
-}
-.txt_L{
-    font-size: calc(30px - 0.5vw);
-}
-.txt_M{
-    font-size: calc(25px - 0.5vw);
-}
-.txt_S{
-    font-size: calc(18px - 0.5vw);
-}
-.txt_XS{
-    font-size: calc(12px - 0.5vw);
-}
+
 
 .btn-common{
     text-align: center;
@@ -160,7 +183,9 @@ body{
 #app > nav >.collapse > ul > .header-fn-color{
     color:var(--main-cm-color-white);
 }
-
+.logo-user-icon{
+    border-radius: 50%;
+}
 .sidebar{
     display: block;
     background-color:var(--main-bg-side-color-gray);
@@ -189,9 +214,3 @@ body{
     color: var(--main-fn-color-black);
 }
 
-@media screen and (max-width:575px) { 
-    /*　画面サイズが575px以下はここを読み込む　*/
-.span_slice{
-    display: none;
-}
-}

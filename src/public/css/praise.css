@@ -1,14 +1,12 @@
-/* @media screen and (max-width:575px){
+@media screen and (max-width:575px){
     .pager-btn {
         display: none;
     }
-    aside{
-        display: none;
-    }
+
     main > .step-btn-area {
         margin-top: 0px;
     }
-} */
+}
 /* ------------------------------Loading-------------------------- */
 #overlay{   
     position: fixed;
@@ -91,9 +89,7 @@
     display: none;
     flex-wrap: wrap;
 }
-.common-page-area-size{
-    height: 450px;
-}
+
 .to-icon input[type="radio"] {
     display: none;
 }
@@ -104,14 +100,16 @@
     margin: 3px;
     padding: 4px;
 }
-
+.to-icon{
+    display: flex;
+    flex-direction: column;
+}
   /* 選択されたラジオボタンの画像の背景をオレンジ色に変える */
 .to-icon input[type="radio"]:checked + label >.icon-circle{
     background: #EE82EE;
 }
 .icon-circle {
-    width: 70%;
-    height: 70%; 
+    width: 50%;
     border-radius: 50%;
 }
 .icon-name{
@@ -129,7 +127,6 @@
     padding: 18px 0;
     text-align: center;
     width: 40px;
-    height: 130px;
     border-radius: 0%;
     margin: 15% 0;
 
@@ -141,7 +138,7 @@
 
 /* ----------------------------------prev next btn---------------------------------------- */
 .step-btn-area{
-    margin-top: 40px;
+    position: relative;
     margin-right: 50px;
     padding: 0;
     display: flex;
