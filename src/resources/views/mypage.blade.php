@@ -31,36 +31,36 @@
                             <span class="txt_S">{{Auth::user()->profile}}</span>
                         </div>
                         <div class="my-praise-cnt col-12 ">
-                            <label class="txt_S"><i class="far fa-smile-wink"></i>&nbsp;褒めた回数: 30回</label>
-                            <label class="txt_S offset-1"><i class="far fa-grin-hearts"></i>&nbsp;褒められた回数: 53回</label>
+                            <label class="txt_S"><i class="far fa-smile-wink"></i>&nbsp;褒めた回数: {{$myPraiseCount}}回</label>
+                            <label class="txt_S offset-1"><i class="far fa-grin-hearts"></i>&nbsp;褒められた回数: {{$toMyPraiseCount}}回</label>
                         </div>
                     </div>
                 </header>
 
-                <main class="my-praise-datas ">
+                <main class="my-praise-datas">
                     <nav class="mypage-menu w-100">
                         <ul class="mypage-menu-list col-12 text-center px-5" id="mypage-menu-list">
                             <li class="col-3 txt_S">
-                                <a href="#" class="menu-1"><i class="far fa-smile-wink"></i>&nbsp;褒め</a>
+                                <span class="board menu-1"><i class="far fa-smile-wink"></i>&nbsp;褒め</さ>
                             </li>
                             <li class="col-3 txt_S">
-                                <a href="#" class="menu-2"><i class="far fa-grin-hearts"></i>&nbsp;褒められ</a>
+                                <span class="board menu-2"><i class="far fa-grin-hearts"></i>&nbsp;褒められ</span>
                             </li>
                             <li class="col-3 txt_S">
-                                <a href="#" class="menu-3"><i class="fas fa-chart-area"></i>&nbsp;チャート</a>
+                                <span class="chart menu-3"><i class="fas fa-chart-area"></i>&nbsp;チャート</span>
                             </li>
                             <li class="col-3 txt_S">
-                                <a href="#" class="menu-4"><i class="fab fa-cloudsmith"></i>&nbsp;相関図</a>
+                                <span class="graph menu-4"><i class="fab fa-cloudsmith"></i>&nbsp;相関図</span>
                             </li>
                         </ul>
                     </nav>
                     <!-- 褒めた -->
                     <section class="menu-1">
-                        eee
+                        <div class="my-board-area" data-page=1></div>
                     </section>
                     <!-- 褒められた -->
                     <section class="menu-2">
-                        ffff
+                        <div class="my-board-area" data-page=1></div>
                     </section>
                     <!-- チャート -->
                     <section class="menu-3">

@@ -23,5 +23,9 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/praise{auth_user}', 'PraiseController@showPraiseForm')->name('praise.create');
     Route::post('/praise{auth_user}', 'PraiseController@praiseCreate');
     Route::get('/mypage{auth_user}', 'MyPageController@showMyPageForm')->name('mypage');
+    Route::get('/mypage/menu-1', 'MyPageController@getMyPraiseList');
+    Route::get('/mypage/menu-1/{page}', 'MyPageController@moreGetMyPraiseList');
+    Route::get('/mypage/menu-2', 'MyPageController@getToMyPraiseList');
+    Route::get('/mypage/menu-2/{page}', 'MyPageController@moreGetToMyPraiseList');
 });
 

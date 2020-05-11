@@ -47,14 +47,26 @@
     margin-top: 10px;
     
 }
-#mypage-menu-list li a{
+#mypage-menu-list li span{
     color: var(--main-fn-color-black);
 }
-#mypage-menu-list li a:hover{
+#mypage-menu-list li span:hover{
     
     text-decoration: none;
+    cursor: pointer;
 }
 .my-praise-datas > section{
     display: none;
 }
-
+.mypage-menu {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 64px;
+    z-index: 50;
+    background-color: #C0C0C0;
+}
+/* -------------------------------------------------------------------------------- */
+.my-board-area{
+    display: flex;
+    flex-wrap: wrap;
+}
