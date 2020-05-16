@@ -14,3 +14,14 @@ RUN pecl install xdebug \
 #gitインストール
 RUN apt-get update
 RUN apt-get install -y git
+
+RUN apt-get update \
+&& apt-get install -y \
+gcc \
+make \
+libpng-dev \
+libmcrypt-dev \
+libjpeg-dev \
+libfreetype6-dev \
+&& docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ \
+&& docker-php-ext-install -j$(nproc) gd

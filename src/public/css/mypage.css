@@ -1,0 +1,185 @@
+@media screen and (max-width:575px){
+    #mydiagram{
+        height: 100vw!important;
+    }
+}
+@media screen and (max-width:768px){
+    .br-iphone{
+        display: block;
+    }
+    .my-icon-name > .my-icon{
+        width: 100px!important;
+        height: 100px!important;
+        object-fit: cover;
+    }
+    .chart-container{
+        height:75vw!important;
+    }
+    #mydiagram{
+        height: 75vw!important;
+    }
+
+}
+@media screen and (min-width:769px){
+    .my-icon-name > .my-icon{
+        width: 160px!important;
+        height: 160px!important;
+        object-fit: cover;
+    }
+    .chart-container{
+        height:50vw!important;
+    }
+    #mydiagram{
+        height: 50vw!important;
+    }
+}
+
+.main-all-area{
+    border-radius: 50px;
+    background-color: rgba(255,255,255,0.8);
+    position: relative;
+}
+
+#my-profiles > .my-icon-area{
+    display: flex;
+}
+#my-profiles > .my-icon-area > .my-icon-name {
+    display: flex;
+    align-items: center;
+}
+#my-profiles > .my-icon-area > .my-icon-name > .my-icon {
+    border-radius: 50%;
+}
+.chamge-my-profile {
+    display: flex;
+    align-items: center;
+}
+.chamge-my-profile > button:hover {
+    cursor: pointer;
+}
+.br-iphone{
+    display: none;
+}
+/* -------------------menu---------------------------------- */
+#mypage-menu-list{
+    display: flex;
+    padding: 0;
+}
+
+#mypage-menu-list li{
+    list-style: none;
+    border-bottom: solid var(--main-fn-color-black) 2px;
+    margin-top: 10px;
+    
+}
+#mypage-menu-list li span{
+    color: var(--main-fn-color-black);
+}
+#mypage-menu-list li span:hover{
+    
+    text-decoration: none;
+    cursor: pointer;
+}
+.my-praise-datas > section{
+    display: none;
+}
+.mypage-menu {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 64px;
+    z-index: 50;
+    background-color: #C0C0C0;
+}
+/* -------------------------------------------------------------------------------- */
+.my-board-area{
+    display: flex;
+    flex-wrap: wrap;
+}
+.chart-container{
+    position: relative;
+    width: 100%;
+    height:75vw;
+}
+/* --------------------------------edit------------------------------------------ */
+
+.edit-overlay{
+    position: absolute;
+    display: none;
+    z-index: 50;
+    top: 0;
+    width: 100%!important;
+    height: 120%!important;
+}
+.modal__bg{
+    background: rgba(0,0,0,0.8);
+    height: 120%;
+    width: 100%;
+}
+.modal__content{
+    background: #fff;
+    left: 50%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    position: absolute;
+    top: 30%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+}
+.modal__content > .header{
+    display: flex;
+    background: var(--main-fn-color-black);
+    color: var(--main-cm-color-white);
+}
+.modal__content > div >.my-icon{
+    border-radius: 50%;
+}
+.file-btn > input{
+    display: none;
+}
+.file-btn > i{
+    text-align: end;
+    color: var(--main-fn-color-gray);
+    /* color: blue; */
+    border-radius: 50%;
+    margin-top: auto!important;
+    /* background-color: blue; */
+}
+.modal__content > div{
+    border-top: var(--main-fn-color-black);
+    display: flex;
+    align-items: center;
+}
+.modal__content > div > h2{
+    margin: 0;
+    padding: 0;
+}
+.modal__content > div > div > h2{
+    color: var(--main-fn-color-black);
+}
+.modal__content > div > div > input,
+.modal__content > div > div > textarea{
+    color: #87CEFA;
+}
+.modal__content > div > div > input:focus,
+.modal__content > div > div > textarea:focus{
+    outline: none;
+}
+.modal__content > .footer{
+    margin-right: 50px;
+    padding: 0;
+    display: flex;
+    line-height: 60px;
+}   
+.modal__content > .footer > button{
+    border-radius: 0;
+    text-align: center;
+    border-top: solid 1px var(--main-fn-color-black); 
+    border-bottom: solid 1px var(--main-fn-color-black); ;
+    border-left: double 8px var(--main-fn-color-black);
+    border-right: double 8px var(--main-fn-color-black);
+    color: var(--main-fn-color-black);
+}
+.modal__content > .footer > button:hover,
+.modal__content > div > .file-btn:hover{
+    cursor: pointer;
+}
