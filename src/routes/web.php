@@ -27,5 +27,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/mypage/menu-1/{page}', 'MyPageController@moreGetMyPraiseList');
     Route::get('/mypage/menu-2', 'MyPageController@getToMyPraiseList');
     Route::get('/mypage/menu-2/{page}', 'MyPageController@moreGetToMyPraiseList');
+    Route::get('/mypage/chart', 'MyPageController@showChart');
+    Route::get('/mypage/diagram', 'MyPageController@showdiagram');
+    Route::post('/mypage/profile', 'MyPageController@EditProfile')->name('mypage.edit');
 });
 
