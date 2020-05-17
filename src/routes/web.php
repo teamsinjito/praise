@@ -30,5 +30,9 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/mypage/chart', 'MyPageController@showChart');
     Route::get('/mypage/diagram', 'MyPageController@showdiagram');
     Route::post('/mypage/profile', 'MyPageController@EditProfile')->name('mypage.edit');
+    Route::get('/comments/{board_id}', 'HomeController@showCommentList')->name('comment');//コメント表示機能
+    Route::post('/comments/{board_id}', 'HomeController@postComment');//コメント投稿
+    Route::post('/goods/{board_id}', 'HomeController@postGood')->name('good');//いいね投稿
+
 });
 
