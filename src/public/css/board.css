@@ -1,0 +1,25 @@
+  .boardImgs{
+    cursor: pointer;
+    filter: grayscale(100%);
+    transition-duration: 0.5s;
+  }
+  .boardImage-IN > div >.boardImgs:hover{
+    filter: grayscale(0);
+    transition-duration: 0.5s;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+    transform: translateY(-10px);
+  }
+
+.boardImage-IN{
+  border-radius: 50px;
+  background-color: rgba(255,255,255,0.8);
+}
+
+.boardImage-IN{
+  display:flex;
+  flex-wrap: wrap;
+}
+.boardImage-IN > div{
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
