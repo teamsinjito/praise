@@ -25,10 +25,11 @@ class HomeController extends Controller
     {
         //ユーザ情報取得(褒める・褒められた)
 
-        //TL情報を取得する
+        //TL情報を取得する(6件)
+    $boardPaths = \DB::table('boards')->orderBy('id', 'DESC')->take(9)->get();
 
-
-
-        return view('home');
+    return view('home')->with('boardPaths', $boardPaths);
     }
+
+
 }
