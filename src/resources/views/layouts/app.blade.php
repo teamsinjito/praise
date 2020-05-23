@@ -85,6 +85,9 @@
                 <aside class="col-md-2 col-12 px-0 w-100 ">
                     <div class="sidebar text-center side-color col-md-2 col-12 py-4">
                         @include('sidebar')
+                        <footer class="my-5">
+                            <p>&copy; TeamSINJITO 2020</p>
+                        </footer>
                     </div>
                 </aside> 
                 <main class="col px-0">

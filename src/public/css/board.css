@@ -1,20 +1,57 @@
-  .boardImgs{
+.no_scroll{
+  overflow-y: hidden;
+}
+@media screen and (max-width:768px){
+
+  .good-view-area{
+    top:85%;
+  }
+}
+@media screen and (min-width:769px) and (max-width:1024px){
+
+  .good-view-area{
+    top:80%;
+  }
+}
+@media screen and (max-width:1024px){
+  .comment-pc{
+      display: none;
+  }
+  .comment-phone{
+    display: inline-block;
+  }
+  .comment-area{
+    top: 120%;
+  }
+}
+@media screen and (min-width:1025px){
+  .comment-pc{
+      display: inline-block;
+  }
+  .comment-phone{
+    display: none;
+  }
+  .good-view-area{
+    top:80%;
+  }
+  .comment-area{
+    right: -900px;
+  }
+}
+@media screen and (min-width:1200px){
+  .good-view-area{
+    top:85%;
+  }
+}
+.boardImgs{
     cursor: pointer;
     filter: grayscale(100%);
     transition-duration: 0.5s;
-  }
-  .boardImage-IN > div >.boardImgs:hover{
-    filter: grayscale(0);
-    transition-duration: 0.5s;
-    box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
-    transform: translateY(-10px);
-  }
-
-.boardImage-IN{
-  border-radius: 50px;
-  background-color: rgba(255,255,255,0.8);
 }
-
+.boardImage-IN > div >.boardImgs:hover{
+    filter: grayscale(0);
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+}
 .boardImage-IN{
   display:flex;
   flex-wrap: wrap;
@@ -22,4 +59,28 @@
 .boardImage-IN > div{
   background-size: 100%;
   background-repeat: no-repeat;
+}
+/* .baseArea{
+  position: relative;
+} */
+.good-view-area{
+  color: var(--main-fn-color-gray);
+  display: block;
+  /* top:85%; */
+  left:10%;
+  position: absolute;
+}
+.board-btn-area{
+  color: var(--main-fn-color-gray);
+  position:absolute;
+  top:60%;
+  left:10%;
+  display:none;
+  transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -webkit-transform: rotate(-3deg);
+}
+.board-btn-area > i:not(.pushed):hover,
+.board-btn-area > span:not(.pushed):hover{
+  cursor: pointer;
 }

@@ -1,10 +1,11 @@
+var jqxhr = null;
+
 window.onload = function(){
     // ページ読み込み時に実行したい処理
     $('#mypage-menu-list > li:first > span').click();
-    
 }
 
-//メニューボタン押下時
+//メニュータブ押下時
 $('#mypage-menu-list > li > span').click(function(){
 
     //色変更
@@ -23,29 +24,29 @@ $('#mypage-menu-list > li > span').click(function(){
     
 })
 
-//画像切替
-$(document).on('click','.my-board',function(){ 
-    var imgSrc = $(this).attr('src');
-    
-    console.log(imgSrc);
-    if(imgSrc.match('_1.png')){
-        imgSrc = imgSrc.replace('_1.png','_2.png');
-    }
-    else{
-        imgSrc = imgSrc.replace('_2.png','_1.png');
-    }
-    
-    $(this).attr('src',imgSrc);
-    
-})
+//褒めた履歴、褒められた履歴タブ切替時
+$('#mypage-menu-list > li > .board').on('click', function() {
 
-//ajax　メニュー切替時
-$('#mypage-menu-list > li > .board').one('click', function() {
+    //二重クリック防止
+    if(jqxhr){ jqxhr.abort(); }
 
+    var col_cmt;
     //クラス名取得
     var classNames =$(this).attr('class').split(" ");
 
-    $.ajax({
+    if ($('.comment-area').hasClass('active')) {
+        col_cmt=6
+    }else{
+        col_cmt=4
+    }
+    if($('.'+ classNames[1] +' > .boardImage-IN > div').length){
+        $('.'+ classNames[1] +' > .boardImage-IN > .board').removeClass('col-lg-4')
+        $('.'+ classNames[1] +' > .boardImage-IN > .board').removeClass('col-lg-6')
+        $('.'+ classNames[1] +' > .boardImage-IN > .board').addClass('col-lg-'+col_cmt)
+
+    }
+
+    jqxhr = $.ajax({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
@@ -59,16 +60,16 @@ $('#mypage-menu-list > li > .board').one('click', function() {
     .done(function(data) {
         // Laravel内で処理された結果がdataに入って返ってくる
         // console.log(data);
-        for(var i = 0; i < data.length; i++){
-            $('.'+ classNames[1] +' > .my-board-area').append('<div class="col-md-6 col-lg-4 col-12">' +
-            '<img class="my-board w-100" src="/storage/img/boards/'+data[i].id+'_1.png">'+
-            '</div>')
+        if($('.'+ classNames[1] +' > .boardImage-IN > div').length){
+            $('.'+ classNames[1] +' > .boardImage-IN > div').remove();
         }
+        makeBoardListHTML(data,'.'+ classNames[1] +' > .boardImage-IN');
     })
     // Ajaxリクエスト失敗時の処理
     .fail(function(data) {
         // console.log('Ajaxリクエスト失敗');
     });
+    
 });
 
 //ajax スクロールイベント
@@ -76,13 +77,14 @@ $(window).on('scroll', function() {
     
     //最下に来た時
     if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+        
+        var col_cmt;
 
         //現在褒めた履歴、褒められた履歴を表示しているか　かつボードが9つ以上あるか
-        if($('.my-praise-datas > .active > .my-board-area').children().length>8){
+        if($('.my-praise-datas > .active > .boardImage-IN').children().length>8){
 
             //現在のページ数を取得
-            var page =$('.my-praise-datas > .active > .my-board-area').data('page');
-            console.log(page);
+            var imglastid = $('.boardImage').attr('data-imgid'); //現在表示されているボードの末尾のID
     
             var classNames= $('.my-praise-datas > .active').attr('class').split(" ");
 
@@ -90,27 +92,21 @@ $(window).on('scroll', function() {
                 type: "GET",
                 contentType: "application/json",
                 // コンテンツ読み込み先URL
-                url: "/mypage/"+classNames[0]+"/" + page, //ルーティングのパス
+                url: "/mypage/"+classNames[0]+"/" + imglastid, //ルーティングのパス
                 datatype: 'json',
     
             })
             // Ajaxリクエスト成功時の処理
             .done(function(data) {
-                // Laravel内で処理された結果がdataに入って返ってくる
-                console.log(data);
-                for(var i = 0; i < data.length; i++){
-                    $('.my-praise-datas > .active > .my-board-area').append('<div class="col-md-6 col-lg-4 col-12">' +
-                    '<img class="my-board w-100" src="/storage/img/boards/'+data[i].id+'_1.png">'+
-                    '</div>')
-                }
-                if(data.length){
-                    page++;
-                    $('.my-praise-datas > .active > .my-board-area').data('page',page);
-                }
+
+                makeBoardListHTML(data,'.my-praise-datas > .active > .boardImage-IN');
             })
             // Ajaxリクエスト失敗時の処理
             .fail(function(data) {
                 console.log('Ajaxリクエスト失敗');
+                //スクロール禁止解除
+                $("body").removeClass("no_scroll");
+                $(window).off('touchmove');
             });
         }
     }
@@ -337,7 +333,7 @@ $('#file').on('change', function (e) {
     reader.readAsDataURL(e.target.files[0]);
 });
 
-
+//ロード画面
 $("#submit-btn").on("click", function(){
     $("form").submit(); //フォーム実行
     $("#overlay").fadeIn(500); //二度押しを防ぐloading表示

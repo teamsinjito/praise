@@ -7,7 +7,7 @@
 
 @section('content')
 
-    <div class="main-all-area h-100 m-2">
+    <div class="main-all-area h-100 mx-2">
         <div class="praise-all-area">
             <div class="praise-bg-area">
                 <div class="praise-area">
