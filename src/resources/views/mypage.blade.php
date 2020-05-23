@@ -2,15 +2,20 @@
 
 @section('css_js')
     <link href="{{ asset('css/mypage.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/board.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/comments.css') }}" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
     <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
     <script src="{{ asset('js/mypage.js') }}" defer></script>
+    <script src="{{ asset('js/board.js') }}" defer></script>
+    <script src="{{ asset('js/comments.js') }}" defer></script>
+    <script src="{{ asset('js/favorites.js') }}" defer></script>
 @endsection
 
 @section('content')
-    <div class="main-all-area h-100 mx-2">
-        <div class="mypage-bg-area h-100 py-4">
-            <div class="h-100">
+    <div class="main-all-area  mx-2">
+        <div class="mypage-bg-area  py-4">
+            <div class="">
                 <header class="my-profiles" id="my-profiles">
                     @if($errors->any())
                         <div class="alert alert-danger">
@@ -61,13 +66,14 @@
                             </li>
                         </ul>
                     </nav>
+
                     <!-- 褒めた -->
-                    <section class="menu-1">
-                        <div class="my-board-area" data-page=1></div>
+                    <section class="menu-1 boardImage">
+                        <div class="my-board-area boardImage-IN w-100" data-page=1 data-flameimgpath = "{{ asset('/storage/img/templetes/board_frame.png') }}"></div>
                     </section>
                     <!-- 褒められた -->
-                    <section class="menu-2">
-                        <div class="my-board-area" data-page=1></div>
+                    <section class="menu-2 boardImage">
+                        <div class="my-board-area boardImage-IN" data-page=1 data-flameimgpath = "{{ asset('/storage/img/templetes/board_frame.png') }}"></div>
                     </section>
                     <!-- チャート -->
                     <section class="menu-3">
@@ -83,6 +89,7 @@
 
             </div>
         </div>
+
         <!-- 編集 -->
         <section class="edit-overlay">
             <div class="modal__bg"></div>
@@ -109,7 +116,7 @@
                     <div class="profile-area border-bottom col-12 text-center py-3">
                         <h2 class="col-sm-2 col-2 txt_M">profile</h2>
                         <div class="col-sm-10 col-10">
-                            <textarea rows="4" cols="20" type="text" class="w-100 border border-0 txt_M" name="profile" maxlength="100">{{Auth::user()->profile}}</textarea>
+                            <textarea rows="1" cols="25" type="text" class="w-100 border border-0 txt_M" name="profile" maxlength="100">{{Auth::user()->profile}}</textarea>
                         </div>
                     </div>
                     <div class="footer col-sm-4 col-12 offset-sm-8 my-4">
@@ -120,4 +127,8 @@
             </form>
         </section>
     </div>
+
+    <!-- コメント欄 -->
+    @include('comments')
+
 @endsection

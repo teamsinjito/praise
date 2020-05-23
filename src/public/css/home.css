@@ -1,0 +1,26 @@
+.boardImage-IN{
+    border-radius: 50px;
+    background-color: rgba(255,255,255,0.8);
+}
+
+/* 完了メッセージ */
+#prised-completed{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100vw;
+    height:100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    color: var(--main-cm-color-white);
+}
+#prised-completed > .modal-display{
+    background: rgba(0,0,0,0.3);
+    border-radius: 50px;
+    display: none;
+}
+.modal-class-btn:hover{
+    cursor: pointer;
+}

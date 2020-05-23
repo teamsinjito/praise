@@ -1,0 +1,92 @@
+.comment-area{
+    position: fixed;
+    display: none;
+    margin: 0;
+    z-index: 60;
+    background-color: rgba(255,255,255,0.8);
+}
+.comment-area-header{
+    background: var(--main-fn-color-black);
+    color: var(--main-cm-color-white);
+}
+.close-comment-icon{
+    position: absolute;
+    top: 6;
+    left: 5;
+}
+.close-comment-icon > i:hover{
+    cursor: pointer;
+    position: relative;
+}
+.comment-post-error{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 70;
+}
+.comment-area-row,
+.comment-add-row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: baseline;
+}
+.comment-list{
+    overflow-y: scroll;
+    position: relative;
+}
+.my-icon{
+    border-radius: 50%;
+}
+.comment-display-toggle{
+    color: var(--main-fn-color-black);
+    border-top: solid 1px var(--main-fn-color-black);
+    border-bottom: solid 1px var(--main-fn-color-black);
+}
+.comment-display-toggle:hover{
+    cursor: pointer;
+}
+.comment-add-row-area{
+    display: none;
+}
+.cp_iptxt {
+    position: relative;
+    width: 100%;
+}
+.cp_iptxt input[type='text'] {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.3em;
+    transform: scale(0.8);
+    letter-spacing: 1px;
+    border: 0;
+    background-color:transparent;
+}
+.cp_iptxt input[type='text']:focus {
+    outline: none;
+}
+.cp_iptxt input[type='text']:focus::after {
+    outline: none;
+}
+.cp_iptxt::after {
+    display: block;
+    width: 100%;
+    height: 4px;
+    margin-top: -1px;
+    content: '';
+    border-width: 0 0 2px 0;
+    border-style: solid;
+    border-color: var(--main-fn-color-black);
+}
+.comment-add-row > .footer > button{
+    border-radius: 0;
+    text-align: center;
+    border-top: solid 1px var(--main-fn-color-black); 
+    border-bottom: solid 1px var(--main-fn-color-black); ;
+    border-left: double 8px var(--main-fn-color-black);
+    border-right: double 8px var(--main-fn-color-black);
+    color: var(--main-fn-color-black);
+}
+.comment-add-row > .footer > button:hover{
+    cursor: pointer;
+}

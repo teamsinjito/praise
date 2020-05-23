@@ -11,9 +11,12 @@ use Intervention\Image\Facades\Image;
 use App\Http\Requests\PraiseCreate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Http\Traits\MyPraiseCount;
 
 class PraiseController extends Controller
 {
+    use MyPraiseCount;
+    
     public function __construct()
     {
         $this->middleware('auth');
@@ -30,10 +33,20 @@ class PraiseController extends Controller
         // スタンプ一覧取得
         $stamps = Stamp::all();
 
+        //褒めた数を取得
+        $myPraiseCount = DB::table('boards')
+                        ->where('from_user_id',Auth::user()->id)
+                        ->count();
+        //褒められた数を取得
+        $toMyPraiseCount = DB::table('boards')
+                        ->where('to_user_id',Auth::user()->id)
+                        ->count();
         //ビューを返す
         return view('praise', [
             'users' => $users,
-            'stamps' => $stamps
+            'stamps' => $stamps,
+            'myPraiseCount'=>$this->getMyPraiseCnt(),
+            'toMyPraiseCount'=>$this->getMyPraisedCnt()
         ]);
     }
 
@@ -86,8 +99,19 @@ class PraiseController extends Controller
                 $font->color('#444444');
                 $font->angle(3);
             }); 
+
             //メッセージ挿入
-            $board_img_message ->text($board->message, 1680, 1210, function($font) {
+            //メッセージの文字数から改行処理を行う
+            if(mb_strlen($board->message,'UTF-8') <=15){
+
+                $message=$board->message;
+
+            }else{
+                $message= mb_substr($board->message,0,15)."\n".
+                            mb_substr($board->message,15,15);
+            }
+
+            $board_img_message ->text($message, 1680, 1210, function($font) {
                 $font->file(storage_path('fonts/851MkPOP_002.ttf'));
                 $font->size(220);
                 $font->align('center');
@@ -107,7 +131,7 @@ class PraiseController extends Controller
 
 
 
-        return redirect()->route('home');
+        return redirect()->route('home')->with('praised', $board->id);
 
     }
 

@@ -1,12 +1,16 @@
+@keyframes sp-anime {
+    100% { 
+        transform: rotate(360deg); 
+    }
+}
+
 @media screen and (max-width:575px){
     #mydiagram{
         height: 100vw!important;
     }
 }
 @media screen and (max-width:768px){
-    .br-iphone{
-        display: block;
-    }
+
     .my-icon-name > .my-icon{
         width: 100px!important;
         height: 100px!important;
@@ -39,7 +43,6 @@
     background-color: rgba(255,255,255,0.8);
     position: relative;
 }
-
 #my-profiles > .my-icon-area{
     display: flex;
 }
@@ -56,9 +59,6 @@
 }
 .chamge-my-profile > button:hover {
     cursor: pointer;
-}
-.br-iphone{
-    display: none;
 }
 /* -------------------menu---------------------------------- */
 #mypage-menu-list{
@@ -90,11 +90,8 @@
     z-index: 50;
     background-color: #C0C0C0;
 }
-/* -------------------------------------------------------------------------------- */
-.my-board-area{
-    display: flex;
-    flex-wrap: wrap;
-}
+
+/* -------------------------------chart------------------------------------------ */
 .chart-container{
     position: relative;
     width: 100%;
@@ -105,7 +102,7 @@
 .edit-overlay{
     position: absolute;
     display: none;
-    z-index: 50;
+    z-index: 70;
     top: 0;
     width: 100%!important;
     height: 120%!important;
@@ -121,7 +118,7 @@
     margin-top: 40px;
     margin-bottom: 40px;
     position: absolute;
-    top: 30%;
+    top: 300px;
     transform: translate(-50%,-50%);
     width: 100%;
 }
