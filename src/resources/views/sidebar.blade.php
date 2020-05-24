@@ -15,7 +15,7 @@
     <label class="txt_S"><i class="far fa-grin-hearts"></i><span class="iphone-only-txt">&nbsp;褒められた</span> ：{{$toMyPraiseCount}}回</label>
 </div>
 <div class="contents border-dark border-top border-bottom py-3 mx-4">
-    <a href="/" target="_selef" class="txt_M"><i class="fas fa-stream"></i><span class="iphone-only-txt">&nbsp;Home</span></a>
+    <a href="{{ url('/') }}" class="txt_M"><i class="fas fa-stream"></i><span class="iphone-only-txt">&nbsp;Home</span></a>
     <a href="{{ route('praise.create', ['auth_user' => Auth::user()]) }}" class="txt_M"><i class="fas fa-award"></i><span class="iphone-only-txt">&nbsp;Praise</span></a>
     <a href="{{ route('mypage', ['auth_user' => Auth::user()]) }}" class="txt_M"><i class="fas fa-home"></i><span class="iphone-only-txt">&nbsp;MyPage</span></a>
     <!-- <a href="" target="_selef" class="txt_M"><i class="fas fa-user-shield"></i><span class="iphone-only-txt">&nbsp;Config</span></a> -->

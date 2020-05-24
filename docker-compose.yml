@@ -8,22 +8,25 @@ services:
         volumes:
             - ./src:/var/www/html
             - ./web/default.conf:/etc/nginx/conf.d/default.conf
+        depends_on: 
+            - php
     php:
         container_name: php
         build: ./app
         volumes:
             - ./src:/var/www/html
             - ./app/php.ini:/usr/local/etc/php/php.ini
-    mysql:
-        container_name: mysql
-        image: mysql:5.7
+        depends_on: 
+            - postgres
+    postgres:
+        container_name: postgres
+        image: postgres:12.3
         environment:
-            MYSQL_DATABASE: praise
-            MYSQL_ROOT_PASSWORD: password
-            MYSQL_USER: admin
-            MYSQL_PASSWORD: password
+            POSTGRES_USER: admin          #ユーザアカウント
+            POSTGRES_PASSWORD: password  #ユーザアカウントのパスワード
+            POSTGRES_DB: praise          #DB名
             TZ: Asia/Tokyo
         ports:
-            - 3306:3306
+            - 5432:5430
         volumes:
-            - ./db/data:/var/lib/mysql
+            - ./db/data:/var/lib/postgres

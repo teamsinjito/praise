@@ -18,7 +18,12 @@
 @endif
 
 {{-- ボード表示 --}}
+@if(count($boardPaths) > 0)
+
 <div class="main-all-area boardImage h-100 mx-2 my-2" data-imgid="{{$boardPaths[count($boardPaths) - 1] -> id}}">
+    @else
+    <div class="main-all-area boardImage h-100 mx-2 my-2" data-imgid=0>
+@endif
     <div class="w-100 boardImage-IN" data-flameimgpath = "{{ asset('/storage/img/templetes/board_frame.png') }}">
     @if(count($boardPaths) > 0)
         @foreach($boardPaths as $board)
