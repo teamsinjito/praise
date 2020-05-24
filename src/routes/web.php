@@ -34,6 +34,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/comments/{board_id}', 'HomeController@postComment');//コメント投稿
     Route::post('/goods/{board_id}', 'HomeController@postGood')->name('good');//いいね投稿
     Route::get('/goods{page}', 'HomeController@getGood');//いいね取得
+    Route::get('/maintenance', 'MaintenanceController@showMaintenanceView')->name('maintenance'); //メンテナンス画面
 
 });
 
