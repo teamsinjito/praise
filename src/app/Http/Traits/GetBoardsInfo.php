@@ -72,7 +72,7 @@ trait GetBoardsInfo{
         };
 
 
-        $boards = $boards->select(DB::raw('b.id,IFNULL(g.cnt,0) as cnt,IFNULL(c.cnt,0) as cnt_comment,IFNULL(p.user_id,0) as pushed'))
+        $boards = $boards->select(DB::raw('b.id,COALESCE(g.cnt,0) as cnt,COALESCE(c.cnt,0) as cnt_comment,COALESCE(p.user_id,0) as pushed'))
                 ->orderBy('b.id', 'DESC')
                 ->take($LIMITCNT)
                 ->get();
