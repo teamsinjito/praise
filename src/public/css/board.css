@@ -43,7 +43,7 @@
     top:85%;
   }
 }
-.boardImgs{
+.boardImgs:not(.preview){
     cursor: pointer;
     filter: grayscale(100%);
     transition-duration: 0.5s;
@@ -80,7 +80,7 @@
   -moz-transform: rotate(-3deg);
   -webkit-transform: rotate(-3deg);
 }
-.board-btn-area > i:not(.pushed):hover,
-.board-btn-area > span:not(.pushed):hover{
+.board-btn-area > i:hover,
+.board-btn-area > span:hover{
   cursor: pointer;
 }

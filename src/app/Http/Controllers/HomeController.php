@@ -62,7 +62,7 @@ class HomeController extends Controller
                         ->leftJoin('users','comments.user_id','=','users.id')
                         ->where('boards.id','=',$board_id)
                         ->orderBy('comments.created_at','DESC')
-                        ->select('users.id','users.name','comments.comment','comments.created_at')
+                        ->select('users.image','users.name','comments.comment','comments.created_at')
                         ->get();
         return Response::json($commentList);
     }
@@ -84,25 +84,35 @@ class HomeController extends Controller
                 ->leftJoin('users','comments.user_id','=','users.id')
                 ->where('boards.id','=',$board_id)
                 ->orderBy('comments.created_at','DESC')
-                ->select('users.id','users.name','comments.comment','comments.created_at')
+                ->select('users.image','users.name','comments.comment','comments.created_at')
                 ->get();
 
         return Response::json($commentList);
     }
 
     //いいねボタン押下処理
-    public function postGood(int $board_id)
+    public function postGood(int $board_id,Request $request)
     {
-        # code...
-        $board = Good::create([
-            'board_id'=>$board_id,
-            'user_id'=>Auth::user()->id
-        ]);
+        $data = $request->all();
+        $pushedFlg = $data['pushedFlg'];
 
+        # code...
+        //いいね数を増減
+        if($pushedFlg==1){
+            $board = Good::where('board_id',$board_id)->where('user_id',Auth::user()->id)
+                        ->delete();
+        }else{
+            $board = Good::create([
+                'board_id'=>$board_id,
+                'user_id'=>Auth::user()->id
+            ]);
+
+        }
+
+        //ボードのいいね数を取得
         $goodCnt = DB::table('goods')
                     ->where('board_id',$board_id)
-                    ->groupBy('board_id')
-                    ->select(DB::raw('count(board_id) as cnt'))->get();
+                    ->select(DB::raw('COALESCE(count(board_id),0) as cnt'))->get();
 
         return Response::json($goodCnt);
     }

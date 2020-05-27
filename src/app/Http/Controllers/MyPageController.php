@@ -153,57 +153,51 @@ class MyPageController extends Controller
         $myPraisedUserList=DB::table('boards')
                             ->leftJoin('users as u','u.id','=','from_user_id')
                             ->where('to_user_id',Auth::user()->id)
-                            ->groupBy('from_user_id','u.name')
-                            ->select('from_user_id as id','u.name');
+                            ->groupBy('from_user_id','u.name','u.image')
+                            ->select('from_user_id as id','u.name','u.image');
         //褒めた履歴（ユーザ）を集計
         $myPraiseUserList=DB::table('boards')
                             ->leftJoin('users as u','u.id','=','to_user_id')
                             ->where('from_user_id',Auth::user()->id)
-                            ->groupBy('to_user_id','u.name')
-                            ->select('to_user_id as id','u.name');
+                            ->groupBy('to_user_id','u.name','u.image')
+                            ->select('to_user_id as id','u.name','u.image');
 
         //集計結果をUNIONかつログインユーザの情報も加える
-        $tota_praiseUserList=DB::table('users')
+        $total_praiseUserList=DB::table('users')
                             ->where('id',Auth::user()->id)
-                            ->select('id','name')
+                            ->select('id','name','image')
                             ->union($myPraisedUserList)
                             ->union($myPraiseUserList)->get();
 
 
 
-        return Response::json([$tota_praiseUserList,$total_praiseCntList]);
+        return Response::json([$total_praiseUserList,$total_praiseCntList]);
 
     }
 
     //編集保存
     public function EditProfile(EditProfile $request)
     {
-        DB::beginTransaction();
 
-        try{
+            $image=$request->file('img');
 
+            if(!empty($image)){
+                $image = base64_encode(Image::make($image)->fit(400,400)->stream('png', 50));
+                // $image2 = base64_encode($img);
+                // $image= base64_encode(file_get_contents($image->getRealPath()));          
+            }else{
+                $image=Auth::user()->image;
+            }
             DB::table('users')
                 ->where('id', Auth::user()->id)
                 ->update([
                     'name' => $request->name,
                     'profile' => $request->profile,
-                    'updated_at'=>Carbon::now()
+                    'updated_at'=>Carbon::now(),
+                    'image'=>$image
                 ]);
-            
-            if($request->file('img')){
-                $request->file('img')->storeAs('public/img/users',Auth::user()->id.'.png');
-                $img = Image::make(storage_path('app/public/img/users/'.Auth::user()->id.'.png'));
-    
-                $img->fit(400,400);
-                $img->save(storage_path('app/public/img/users/'.Auth::user()->id.'.png'));
 
-            }
             
-            DB::commit();
-
-        }catch(\Exception $e){
-            
-        }
         return redirect()->route('mypage',[
             'auth_user' => Auth::user()
         ]);

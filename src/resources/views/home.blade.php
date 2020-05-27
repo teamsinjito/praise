@@ -24,11 +24,12 @@
     @else
     <div class="main-all-area boardImage h-100 mx-2 my-2" data-imgid=0>
 @endif
-    <div class="w-100 boardImage-IN" data-flameimgpath = "{{ asset('/storage/img/templetes/board_frame.png') }}">
+    <div class="w-100 boardImage-IN" data-flameimgpath = "{{ asset('img/board_frame.png') }}">
     @if(count($boardPaths) > 0)
         @foreach($boardPaths as $board)
             <div class="col-sm-6 col-lg-4 col-12 p-2 board">
-                <img id="{{$board->id}}" src="{{ asset('/storage/img/boards/'.$board->id. '_1.png') }}" alt="ボード画像" class="w-100 boardImgs">
+                <img id="{{$board->id}}" src="data:image/png;base64,{{ $board->image }}" alt="ボード画像" class="w-100 boardImgs main">
+                <img src="data:image/png;base64,{{ $board->image_message }}" alt="ボード画像" class="w-100 boardImgs" style="display: none">
                 <!-- いいね数 コメント数-->
                 <div class="txt_S good-view-area" name="{{$board->id}}">
                     <i class="fas fa-thumbs-up goodView"></i>
