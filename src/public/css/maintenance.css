@@ -1,0 +1,141 @@
+.multipletab{
+    width: 95%;
+    height: 97%;
+    margin:auto;
+    margin-top: 10px;
+    background:#eee;
+    overflow:hidden;
+    position:relative;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    background-color: rgba(255,255,255,0.8);
+  }
+  .tab-buttons{
+    display:inline-block;
+    width:100%;
+    border-bottom:2px solid #666;
+  }
+  .tab-buttons>span{
+    display:block;
+    float:left;
+    cursor:pointer;
+    color:#666;
+    background:#ddd;
+    padding:0 15px;
+    line-height:40px !important;
+    border-radius: 5px;
+  }
+  .tab-buttons>span.active{
+    background:#666;
+    color:#ddd;
+    position:relative;
+    box-shadow:0 0 10px rgba(0,0,0,0.5);
+  }
+  .tab-content>form{
+  position:relative;
+  }
+  .tab-content>form>div{
+    position:absolute;
+    color:#666;
+    text-align: center;
+  }
+  .tab-nav{
+    opacity:0;
+    transition:all .3s linear;
+    -moz-transition:all .3s linear;
+    -webkit-transition:all .3s linear;
+  }
+  .multipletab:hover .tab-nav{
+    opacity:1;
+  }
+  .tab-nav>span{
+    position:absolute;
+    top:50%;
+    cursor:pointer;
+    display:block;
+    height:30px;
+    width:30px;
+  }
+  .tab-nav>span.next{
+    right:25px;
+    background-position:5px;
+    border-top: 10px solid #666;
+    border-right: 10px solid #666;
+    transform: rotate(45deg);
+  }
+  .tab-nav>span.prev{
+    left:25px;
+    background-position:5px;
+    border-bottom: 10px solid #666;
+    border-left: 10px solid #666;
+    transform: rotate(45deg);
+  }
+
+  .registerButton{
+    border-radius: 0;
+    text-align: center;
+    border-top: solid 1px var(--main-fn-color-black);
+    border-bottom: solid 1px var(--main-fn-color-black);
+    border-left: double 8px var(--main-fn-color-black);
+    border-right: double 8px var(--main-fn-color-black);
+    color: var(--main-fn-color-black);
+    background-color: var(--btn-bg-color-gray);
+    width: 25%;
+  }
+
+  .tab-content>form>div>img,
+  .tab-content>form>div>select,
+  .tab-content>form>div>input{
+    margin-bottom:  1em;
+    line-height: calc(25px + 1vw);
+  }
+
+  .categori{
+    background: #666;
+    color: #ffffff;
+    height: calc(30px + 1vw);
+    width: 45%;
+    border-radius: 15px;
+  }
+
+  .tab-content>form>div>input[type="text"],
+  .tab-content>form>div>input[type="password"]{
+    width: 50%;
+    color: #ffffff;
+    background-color: #666;
+    border-radius: 15px;
+    border-style: none;
+  }
+
+  .category_label,
+  .stamp_label,
+  .registerButton{
+    margin-top:  1em;
+  }
+
+
+  input::placeholder {
+    color: #e2e2e2;
+    text-align: center;
+  }
+  /* IE */
+  input:-ms-input-placeholder {
+    color: #e2e2e2;
+    text-align: center;
+  }
+  /* Edge */
+  input::-ms-input-placeholder {
+    color: #e2e2e2;
+    text-align: center;
+  }
+
+  .photoFile{
+    width: 40%;
+    color: #ffffff;
+    background-color: #666;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #666;
+  }
