@@ -47,14 +47,15 @@ class MaintenanceController extends Controller
     public function stampCreate(Request $request){
 
         try{
+            
             $successed = 1;
+            $image = $request->img;
             //画像加工
-            if(!empty($request->file('img'))){
-               $image = $request->file('img');
-               $image = base64_encode(Image::make($image)->fit(700,460)->stream('png',50));
+            if(!empty($image)){
+               $image = base64_encode(Image::make($image)->fit(700,460)->stream('png',50));               
             }
             else{
-                $image = 2;
+                $image = NULL;
             }
             
             $board = Stamp::create([

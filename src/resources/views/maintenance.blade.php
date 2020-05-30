@@ -43,7 +43,7 @@
             </div>
         </form>
 
-        <form action="{{ route('stamp.create')}}"  method="post" id="stampForm">
+        <form action="{{ route('stamp.create')}}"  method="post" id="stampForm"　enctype="multipart/form-data">
             <div id='stamp_tab'> 
                 <label class="txt_XL ">スタンプー名</label><br>
                 <input type="text" name="stamp_name" maxlength="30" value="" placeholder="30文字以内で入力"><br>
@@ -51,7 +51,7 @@
                 {{ Form::select('categories', $categories, null, ['class' => 'categori', 'id' => 'id']) }}<br>
                 <label class="txt_XL stamp_label">スタンプ画像</label><br>
                 {{ csrf_field() }}
-                <input type="file" name="photo" class="photoFile"　id="selectImage" accept="image/*"><br>
+                <input type="file" name="img" class="photoFile"　id="selectImage" accept="image/*"><br>
                 <img id="preview" width="10%" height="10%"><br>
                 <input type="submit" class="registerButton">
             </div>
