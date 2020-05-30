@@ -4,7 +4,7 @@ $('.modal-class-btn').on('click',function(){
 });
 window.onload = function(){
     // ページ読み込み時に実行したい処理
-    $('.board-btn-area > .pushed').css('color','#EE82EE').prop("disabled", true);
+    $('.board-btn-area > .pushed').css('color','#EE82EE');
     $('#prised-completed > .modal-display').fadeIn();
 
     
@@ -36,7 +36,7 @@ $(window).on('scroll', function () {
             })
             // Ajaxリクエスト失敗時の処理
             .fail(function(data) {
-                console.log('Ajaxリクエスト失敗');
+                // console.log('Ajaxリクエスト失敗');
                 //スクロール禁止解除
                 $("body").removeClass("no_scroll");
                 $(window).off('touchmove');

@@ -209,15 +209,6 @@ $('#mypage-menu-list > li > .chart').one('click', function() {
 
 //相関図
 $('#mypage-menu-list > li > .diagram').one('click', function() {
-    var d = new Date();
-var year  = d.getFullYear();
-var month = d.getMonth() + 1;
-var day   = d.getDate();
-var hour  = ( d.getHours()   < 10 ) ? '0' + d.getHours()   : d.getHours();
-var min   = ( d.getMinutes() < 10 ) ? '0' + d.getMinutes() : d.getMinutes();
-var sec   = ( d.getSeconds() < 10 ) ? '0' + d.getSeconds() : d.getSeconds();
-var YmdHis=year.toString()+month.toString()+day.toString()+hour.toString()+min.toString()+sec.toString();
-console.log(YmdHis);
 
     $.ajax({
         headers: {
@@ -236,12 +227,19 @@ console.log(YmdHis);
         var dataP = $('#mydiagram').data('path');
 
         for(var i=0; i<data[0].length;i++){
+            var userImg;
+            if(data[0][i].image!=null){
+                userImg='data:image/png;base64,'+data[0][i].image;
+            }
+            else{
+                userImg='/img/user_icon_default.png'
+            }
 
             node.push({
                 "id": data[0][i]['id'].toString(),
                 "label": data[0][i]['name'].toString(),
                 "shape": 'circularImage',
-                "image": dataP+"/"+data[0][i]['id']+".png?"+YmdHis.toString(),
+                "image": userImg.toString(),
             });
         }
 

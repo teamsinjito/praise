@@ -1,5 +1,3 @@
-var jqxhr = null;
-
 //ボードのコメントボタン押下処理
 $(document).on('click','.board-btn-area > .comment',function(){
 
@@ -83,10 +81,16 @@ $(document).on('click','.board-btn-area > .comment',function(){
 //取得したコメントリストでHTMLを構成
 function makeCommentListHTML (data) {
 
+    var userImg;
     for(var i =  0; i<data.length; i++){
+        if(data[i].image!= null){
+            userImg='<img class="my-icon border w-100" src="data:image/png;base64,'+data[i].image+'" alt:"ユーザーアイコン">'
+        }else{
+            userImg='<img class="my-icon border w-100" src="/img/user_icon_default.png" alt:"ユーザーアイコン">'
+        }
         $('.comment-list').append('<div class="comment-area-row my-2">'+
         '<div class="comment-user-icon col-lg-3 col-2 pr-1">'+
-        '<img class="my-icon border w-100" src="/storage/img/users/'+data[i].id+'.png">'+
+        userImg+
         '</div>'+
         '<div class="comment-user-comment col pl-0">'+
         '<div class="comment-user-name txt_S mb-0">'+data[i].name+'</div>'+

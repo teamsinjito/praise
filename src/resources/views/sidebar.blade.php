@@ -1,6 +1,10 @@
 <div class="sidebar-top">
     <div class="sidebar-icon col-md-12 col-6 offset-md-0 offset-3">
-        <img src="/storage/img/users/{{ Auth::user()->id }}.png?<?php echo date("YmdHis");?>" alt="ユーザーアイコン" class="w-75 mx-auto logo-user-icon">
+        @if(empty(Auth::user()->image))       
+        <img src="{{ asset('/img/user_icon_default.png')}}?<?php echo date("YmdHis");?>" alt="ユーザーアイコン" class="w-75 mx-auto logo-user-icon">
+        @else
+        <img src="data:image/png;base64,{{ Auth::user()->image }}" alt="ユーザーアイコン" class="w-75 mx-auto logo-user-icon">
+        @endif
     </div>
     <div class="sidebar-txt col-md-12 col-6 offset-md-0 offset-3">
         <label class="py-3 txt_L iphone-only-txt">{{ Auth::user()->name }}</label>

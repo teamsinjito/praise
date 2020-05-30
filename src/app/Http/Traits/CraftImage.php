@@ -1,28 +1,24 @@
 <?php
-
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+namespace App\Http\Traits;
 use Intervention\Image\Facades\Image;
 
-class CraftImageController extends Controller
-{
-    const CIRCLE_X =500; //横サイズ
-    const CIRCLE_Y =500; //縦サイズ
-    const CIRCLE_MATTE='#00ff00'; //透過色
-    const ARROW_MATTE='#ffffff'; //透過色
+trait CraftImage {
 
     //円に切り抜く
     public static function trimUserIconCircle($user)
     {
         # code...
+        $CIRCLE_X =500; //横サイズ
+        $CIRCLE_Y =500; //縦サイズ
+        $CIRCLE_MATTE='#00ff00'; //透過色
+
         $touka = Image::make(public_path('img/touka_circle.png'));
 
-        $user->fit(self::CIRCLE_X,self::CIRCLE_Y);
-        $touka->fit(self::CIRCLE_X,self::CIRCLE_Y);
+        $user->fit($CIRCLE_X,$CIRCLE_Y);
+        $touka->fit($CIRCLE_X,$CIRCLE_Y);
 
         $user->insert($touka,'top-left',0,0);
-        $user->limitColors(255, self::CIRCLE_MATTE);
+        $user->limitColors(255, $CIRCLE_MATTE);
 
         return $user;
 
@@ -42,8 +38,6 @@ class CraftImageController extends Controller
         # code...
         $arrow->widen(1200);
         $arrow->rotate(-15);
-
-        // $arrow->limitColors(255, self::ARROW_MATTE);
         
         return $arrow;
     }

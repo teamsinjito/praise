@@ -1,0 +1,33 @@
+@media screen and (max-width:768px){
+    .my-icon{
+        width: 100px!important;
+        height: 100px!important;
+    }
+}
+@media screen and (min-width:769px){
+    .my-icon{
+        width: 160px!important;
+        height: 160px!important;
+    }
+}
+.my-icon{
+    border-radius: 50%;
+    object-fit: cover;
+}
+#file{
+    display: none;
+}
+.image-area{
+    display: flex;
+}
+.file-btn > i{
+    text-align: end;
+    color: var(--main-fn-color-gray);
+    /* color: blue; */
+    border-radius: 50%;
+    margin-top: auto!important;
+    /* background-color: blue; */
+}
+.file-btn > i:hover{
+    cursor: pointer;
+}

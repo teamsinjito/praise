@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class RegisterController extends Controller
 {
@@ -49,10 +51,10 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'user_id' => ['required', 'string', 'max:30'],
+            'user_id' => ['required', 'string', 'max:30','unique:users'],
             'password' => ['required', 'string', 'min:8', 'max:60','confirmed'],
             'name' => ['required', 'string', 'max:30'],
-            'profile' => ['max:100'],
+            'profile' => ['min:0','max:100'],
             'email' => ['email','max:60']
         ]);
     }
@@ -63,14 +65,22 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function create(Request $data)
     {
+        $image=$data->file('image');
+        if(empty($image)){
+            $image =null;
+        }else{
+            $image = base64_encode(Image::make($image)->fit(400,400)->stream('png', 50));          
+        }
+
         return User::create([
-            'user_id' => $data['user_id'],
-            'password' => Hash::make($data['password']),
-            'name' => $data['name'],
-            'profile' => $data['profile'],
-            'email' => $data['email'],
+            'user_id' => $data->user_id,
+            'password' => Hash::make($data->password),
+            'name' => $data->name,
+            'profile' => $data->profile,
+            'email' => $data->email,
+            'image'=>$image
         ]);
     }
 }
