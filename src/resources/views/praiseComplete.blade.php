@@ -5,8 +5,8 @@
         </div>
         <div class="newBoard-image w-100 text-center">
             <div class="col-10 col-sm-8 bg-white mx-auto">
-                <img src="data:image/png;base64,{{session('praised')->image}}" alt="ボード画像" class="w-100 boardImgs preview">
-                <img src="data:image/png;base64,{{session('praised')->image_message}}" alt="ボード画像" class="w-100 boardImgs preview" style="display: none">
+                <img src="{{ asset('/img/'.session('praised').'_1.png') }}" alt="ボード画像" class="w-100 boardImgs preview">
+                <img src="{{ asset('/img/'.session('praised').'_2.png') }}" alt="ボード画像" class="w-100 boardImgs preview" style="display: none">
             </div>
         </div>
         <div class="modal-close w-100 text-center my-4">
