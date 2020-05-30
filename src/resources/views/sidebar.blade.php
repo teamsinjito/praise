@@ -22,6 +22,7 @@
     <a href="{{ url('/') }}" class="txt_M"><i class="fas fa-stream"></i><span class="iphone-only-txt">&nbsp;Home</span></a>
     <a href="{{ route('praise.create', ['auth_user' => Auth::user()]) }}" class="txt_M"><i class="fas fa-award"></i><span class="iphone-only-txt">&nbsp;Praise</span></a>
     <a href="{{ route('mypage', ['auth_user' => Auth::user()]) }}" class="txt_M"><i class="fas fa-home"></i><span class="iphone-only-txt">&nbsp;MyPage</span></a>
+    <a href="{{ route('chatForm', ['auth_user' => Auth::user()]) }}" class="txt_M"><i class="fas fa-comments"></i><span class="iphone-only-txt">&nbsp;Chat</span></a>
     <a href="{{ route('maintenance') }}" class="txt_M"><i class="fas fa-user-shield"></i><span class="iphone-only-txt">&nbsp;Config</span></a>
 </div>
 

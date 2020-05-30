@@ -65,21 +65,32 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(Request $data)
+    protected function create(array $data)
     {
-        $image=$data->file('image');
+        $imagefile=$data['image'];
+
+        $image=$imagefile->get();
         if(empty($image)){
             $image =null;
         }else{
             $image = base64_encode(Image::make($image)->fit(400,400)->stream('png', 50));          
         }
 
+    //     // return User::create([
+    //     //     'user_id' => $data->user_id,
+    //     //     'password' => Hash::make($data->password),
+    //     //     'name' => $data->name,
+    //     //     'profile' => $data->profile,
+    //     //     'email' => $data->email,
+    //     //     'image'=>$image
+    //     // ]);
+
         return User::create([
-            'user_id' => $data->user_id,
-            'password' => Hash::make($data->password),
-            'name' => $data->name,
-            'profile' => $data->profile,
-            'email' => $data->email,
+            'user_id' => $data['user_id'],
+            'password' => Hash::make($data['password']),
+            'name' => $data['name'],
+            'profile' => $data['profile'],
+            'email' => $data['email'],
             'image'=>$image
         ]);
     }

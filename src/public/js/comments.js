@@ -73,7 +73,7 @@ $(document).on('click','.board-btn-area > .comment',function(){
     })
     // Ajaxリクエスト失敗時の処理
     .fail(function(data) {
-        console.log('Ajaxリクエスト失敗');
+        // console.log('Ajaxリクエスト失敗');
     });
 
 });

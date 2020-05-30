@@ -1,0 +1,223 @@
+@media screen and (max-width:575px){
+    .user-list-area{
+        display: block;
+    }
+    .chat-area{
+        display: none;
+    }
+    .toggle-icon{
+        display:inline-block;
+    }
+}
+@media screen and (min-width:576px){
+    .user-list-area{
+        display: block;
+    }
+    .chat-area{
+        display: block;
+    }
+    .toggle-icon{
+        display: none;
+    }
+}
+.main-all-area{
+    border-radius: 50px;
+    background-color: rgba(255,255,255,0.8);
+    position: relative;
+}
+
+.main-area{
+    display: flex;
+    position: absolute;
+    margin: 0;
+}
+.search-form{
+    height: 10%!important;
+}
+.user-list{
+    overflow-y: scroll;
+    position: relative;
+    height: 80%!important;
+}
+
+.cp_iptxt {
+    position: relative;
+    width: 100%;
+}
+.cp_iptxt input[type='text'] {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.3em;
+    transform: scale(0.8);
+    letter-spacing: 1px;
+    border: 0;
+    background-color:transparent;
+}
+.cp_iptxt input[type='text']:focus {
+    outline: none;
+}
+.cp_iptxt input[type='text']:focus::after {
+    outline: none;
+}
+.cp_iptxt::after {
+    display: block;
+    width: 100%;
+    height: 4px;
+    margin-top: -1px;
+    content: '';
+    border-width: 0 0 2px 0;
+    border-style: solid;
+    border-color: var(--main-fn-color-black);
+}
+.user-list{
+    display: flex;
+    flex-direction: column;
+}
+.userList-area-row{
+    display: flex;
+
+}
+.my-icon{
+    border-radius: 50%;
+}
+.chat-header{
+    display: flex;
+    position: relative;
+}
+.user-name{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.chat-last-date{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.userList-area-row:hover{
+    cursor: pointer;
+}
+
+.chat-area{
+    border-left:2px solid var(--main-fn-color-black);
+}
+.chat-area-header{
+    border-bottom: double 6px var(--main-fn-color-black);
+}
+.chat-area-main{
+    height: 80%;
+    text-align: right;
+    overflow-y: scroll;
+}
+.comment-add-row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: baseline;
+}
+.comment-display-toggle{
+    color: var(--main-fn-color-black);
+    border-top: solid 1px var(--main-fn-color-black);
+    border-bottom: solid 1px var(--main-fn-color-black);
+}
+.comment-display-toggle:hover{
+    cursor: pointer;
+}
+.comment-add-row-area{
+    display: none;
+}
+.comment-add-row > .footer > button{
+    border-radius: 0;
+    text-align: center;
+    border-top: solid 1px var(--main-fn-color-black); 
+    border-bottom: solid 1px var(--main-fn-color-black); ;
+    border-left: double 8px var(--main-fn-color-black);
+    border-right: double 8px var(--main-fn-color-black);
+    color: var(--main-fn-color-black);
+}
+.comment-add-row > .footer > button:hover{
+    cursor: pointer;
+}
+.sendIcon{
+    position: absolute;
+    top:0;
+    right: 5%;
+}
+.sendIcon:hover{
+    cursor: pointer;
+}
+/*以下、②左側のコメント*/
+.balloon6 {
+    width: 100%;
+    margin: 10px 0;
+    overflow: hidden;
+  }
+  
+  .balloon6 .faceicon {
+    float: left;
+    margin-right: -50px;
+    width: 60px;
+  }
+  
+  .balloon6 .faceicon img{
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+  }
+  .balloon6 .chatting {
+    width: 100%;
+    text-align: left;
+  }
+  .says {
+    display: inline-block;
+    position: relative; 
+    margin: 30px 0 0 60px;
+    padding: 10px;
+    max-width: 250px;
+    border-radius: 12px;
+    background: #edf1ee;
+  }
+  
+  .says:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 3px; 
+    left: -19px;
+    border: 8px solid transparent;
+    border-right: 18px solid #edf1ee;
+    -webkit-transform: rotate(35deg);
+    transform: rotate(35deg);
+  }
+  .says p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /*以下、③右側の緑コメント*/
+  .mycomment {
+    margin: 10px 0;
+  }
+  .mycomment p {
+    display: inline-block;
+    position: relative; 
+    margin: 0 10px 0 0;
+    padding: 8px;
+    max-width: 250px;
+    border-radius: 12px;
+    background: #30e852;
+  }
+  
+  .mycomment p:after {
+    content: "";
+    position: absolute;
+    top: 3px; 
+    right: -19px;
+    border: 8px solid transparent;
+    border-left: 18px solid #30e852;
+    -webkit-transform: rotate(-35deg);
+    transform: rotate(-35deg);
+  }
+.text-position{
+    text-align: left;
+    margin-left: 10px;
+}
