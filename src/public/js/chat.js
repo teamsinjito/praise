@@ -20,14 +20,14 @@ $(document).on('click','.comment-display-toggle',function(){
         $(this).data('display','off');
     }
 })
-$(document).on('click','.toggle-icon',function(){
-    $('.user-list-area').css('display','block');
-    $('.chat-area').css('display','none');
-})
+// $(document).on('click','.toggle-icon',function(){
+//     $('.user-list-area').css('display','block');
+//     $('.chat-area').css('display','none');
+// })
 //ユーザリスト選択
 $(document).on('click','.userList-area-row' ,function(){
-    $('.user-list-area').css('display','none');
-    $('.chat-area').css('display','block');
+    // $('.user-list-area').css('display','none');
+    // $('.chat-area').css('display','block');
 
     //二重クリック防止
     if(jqxhr){ jqxhr.abort(); }
@@ -114,7 +114,7 @@ $(document).on('click','.sendIcon' ,function(){
     $('.comment-user-comment > .cp_iptxt > input').val("");
 
     var uid =$('.chat-area-main').attr('id');
-
+    console.log(uid);
     jqxhr = $.ajax({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

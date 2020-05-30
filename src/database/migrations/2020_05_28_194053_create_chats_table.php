@@ -16,12 +16,14 @@ class CreateChatsTable extends Migration
         Schema::create('chats', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedinteger('from_user_id')->nullable();
+            $table->unsignedinteger('to_user_id')->nullable();
             $table->string('message',255)->nullable();
             $table->timestamps();
         });
 
         Schema::table('chats', function ($table) {
             $table->foreign('from_user_id')->references('id')->on('users')->onDelete('set null');
+            $table->foreign('to_user_id')->references('id')->on('users')->onDelete('set null');
         });
     }
 
