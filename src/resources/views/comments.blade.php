@@ -16,7 +16,11 @@
         <div class="comment-add-row-area">
             <div class="comment-add-row my-2">
                 <div class="comment-user-icon col-lg-3 col-2 pr-1">
-                    <img class="my-icon border w-100" src="/storage/img/users/{{ Auth::user()->id }}.png?<?php echo date("YmdHis");?>">
+                    @if(empty(Auth::user()->image))
+                    <img class="my-icon border w-100" src="{{ asset('/img/user_icon_default.png')}}?<?php echo date("YmdHis");?>" alt="ユーザーアイコン">
+                    @else
+                    <img class="my-icon border w-100" src="data:image/png;base64,{{ Auth::user()->image }}" alt="ユーザーアイコン">
+                    @endif
                 </div>
                 <div class="comment-user-comment col pl-0">
                     <div class="comment-user-name txt_S mb-0">{{Auth::user()->name}}</div>

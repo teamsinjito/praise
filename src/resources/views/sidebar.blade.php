@@ -1,6 +1,10 @@
 <div class="sidebar-top">
     <div class="sidebar-icon col-md-12 col-6 offset-md-0 offset-3">
-        <img src="/storage/img/users/{{ Auth::user()->id }}.png?<?php echo date("YmdHis");?>" alt="ユーザーアイコン" class="w-75 mx-auto logo-user-icon">
+        @if(empty(Auth::user()->image))       
+        <img src="{{ asset('/img/user_icon_default.png')}}?<?php echo date("YmdHis");?>" alt="ユーザーアイコン" class="w-75 mx-auto logo-user-icon">
+        @else
+        <img src="data:image/png;base64,{{ Auth::user()->image }}" alt="ユーザーアイコン" class="w-75 mx-auto logo-user-icon">
+        @endif
     </div>
     <div class="sidebar-txt col-md-12 col-6 offset-md-0 offset-3">
         <label class="py-3 txt_L iphone-only-txt">{{ Auth::user()->name }}</label>
@@ -18,7 +22,8 @@
     <a href="{{ url('/') }}" class="txt_M"><i class="fas fa-stream"></i><span class="iphone-only-txt">&nbsp;Home</span></a>
     <a href="{{ route('praise.create', ['auth_user' => Auth::user()]) }}" class="txt_M"><i class="fas fa-award"></i><span class="iphone-only-txt">&nbsp;Praise</span></a>
     <a href="{{ route('mypage', ['auth_user' => Auth::user()]) }}" class="txt_M"><i class="fas fa-home"></i><span class="iphone-only-txt">&nbsp;MyPage</span></a>
-    <!-- <a href="" target="_selef" class="txt_M"><i class="fas fa-user-shield"></i><span class="iphone-only-txt">&nbsp;Config</span></a> -->
+    <a href="{{ route('chatForm', ['auth_user' => Auth::user()]) }}" class="txt_M"><i class="fas fa-comments"></i><span class="iphone-only-txt">&nbsp;Chat</span></a>
+    <a href="{{ route('maintenance') }}" class="txt_M"><i class="fas fa-user-shield"></i><span class="iphone-only-txt">&nbsp;Config</span></a>
 </div>
 
 <!-- <div class="other_ mb-0 pt-3">

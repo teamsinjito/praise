@@ -58,7 +58,11 @@
                         <!-- Authentication Links -->
                         
                         <a class="nav-link title_txt header-fn-color pc-only" href="{{ url('/') }}">
-                            <img class="logo-user-icon"src="/storage/img/users/{{ Auth::user()->id }}.png?<?php echo date("YmdHis");?>" style="width: 40px;">
+                            @if(empty(Auth::user()->image))
+                            <img class="logo-user-icon"src="{{asset('/img/user_icon_default.png')}}?<?php echo date("YmdHis");?>" style="width: 40px;">
+                            @else
+                            <img class="logo-user-icon"src="data:image/png;base64,{{ Auth::user()->image }}" style="width: 40px;">
+                            @endif
                             <span>
                                 {{ Auth::user()->name }}
                             </span>
@@ -95,7 +99,7 @@
                 </main>
             </div>
         @else
-            <div class="row main-area mx-0">
+            <div class="row main-area  my-0 mx-0">
                 <main class="col-12">
                     @yield('content')
                 </main>

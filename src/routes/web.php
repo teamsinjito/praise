@@ -34,6 +34,14 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/comments/{board_id}', 'HomeController@postComment');//コメント投稿
     Route::post('/goods/{board_id}', 'HomeController@postGood')->name('good');//いいね投稿
     Route::get('/goods{page}', 'HomeController@getGood');//いいね取得
-
+    Route::get('/maintenance', 'MaintenanceController@showMaintenanceView')->name('maintenance'); 
+    Route::post('/maintenance/category', 'MaintenanceController@CategoryCreate')->name('category.create');//メンテナンス画面
+    Route::post('/maintenance/stamp', 'MaintenanceController@StampCreate')->name('stamp.create');//メンテナンス画面
+    Route::post('/maintenance/user', 'MaintenanceController@UserCreate')->name('user.create');//メンテナンス画面
+    Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+    Route::post('/maintenance/passwordUpdate', 'MaintenanceController@PasswordUpdate')->name('password.update');
+    Route::get('/chat/{auth_user}', 'ChatController@showMainList')->name('chatForm');
+    Route::get('/chat/personal/{to_user}', 'ChatController@showChartForm')->name('chat.show');
+    Route::post('/chat/personal/{to_user}', 'ChatController@postChatForm')->name('chat.post');
 });
 

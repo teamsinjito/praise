@@ -157,7 +157,7 @@ $('.next-step-btn').on('click',function(){
     $('#progress-bar-id > .icon-area > .'+$praise_step).css("visibility","visible"); //表示
     $('#progress-bar-id > .progress > .'+$praise_step).css("width","100%"); //バーを表示
 
-    var id = $('#'+$praise_step+' > .section-page > .to-icon > .'+ $praise_step +':checked').val() //選択したアイコンのidを取得
+    var checkedSrc = $('#'+$praise_step+' > .section-page > .to-icon > .'+ $praise_step +':checked + label > img').attr('src') //選択したアイコンのidを取得
 
     //アイコン画像を取得
     switch($praise_step){
@@ -170,7 +170,7 @@ $('.next-step-btn').on('click',function(){
     }
 
     //プログレスバーの画像を選択したアイコンに差し替える
-    $('#progress-bar-id > .icon-area > .'+$praise_step).attr('src','/storage/img/'+folder+'/'+id+'.png');
+    $('#progress-bar-id > .icon-area > .'+$praise_step).attr('src',checkedSrc);
     
     //ステップ番号を更新
     var new_id = parseInt($praise_step.substr( -1 ))+1;

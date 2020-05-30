@@ -4,9 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Chat extends Model
 {
+    //
     protected $fillable = [
-        'name'
+        'from_user_id','to_user_id','message'
     ];
 }

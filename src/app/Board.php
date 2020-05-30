@@ -8,6 +8,6 @@ class Board extends Model
 {
     //
     protected $fillable = [
-        'from_user_id','to_user_id','stamp_id','message'
+        'from_user_id','to_user_id','stamp_id','message','image','image_message'
     ];
 }

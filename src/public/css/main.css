@@ -82,7 +82,7 @@ html{
 body{ 
     background-size: cover;
     background-repeat: no-repeat;
-    min-height: 100vh;
+    height: 100%;
     background-attachment: fixed;
     /* font-family:  comic Sans MS; */
     font-family: 'Bradley Hand','Bradley Hand','Segoe Print','HanziPen TC','ヒラギノ角ゴシック','Hiragino Sans','ＭＳ ゴシック',sans-serif;
@@ -200,7 +200,7 @@ body{
 .btn{
     padding: 1.5vw 5vw;
     font-size: calc(30px - 0.5vw);
-    width: 75%;
+    /* width: 75%; */
     margin: auto;
 }
 /* ------------------------------Loading-------------------------- */

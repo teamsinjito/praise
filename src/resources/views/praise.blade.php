@@ -54,7 +54,11 @@
                                         <div class="to-icon col-6 col-sm-4 h-25">
                                             <input id="user-icon-id{{ $loop->iteration }}" type="radio" class="praise-step-1" name="to_user" value="{{ $u->id }}">
                                             <label for="user-icon-id{{ $loop->iteration }}">
-                                                <img class="icon-circle" src="/storage/img/users/{{ $u->id }}.png">
+                                            @if(empty($u->image))
+                                            <img class="icon-circle" src="{{ asset('/img/user_icon_default.png')}}?<?php echo date("YmdHis");?>" alt="{{$u->name}}">
+                                            @else
+                                            <img class="icon-circle" src="data:image/png;base64,{{ $u->image }}" alt="{{$u->name}}">
+                                            @endif
                                             </label>
                                             <label for="user-icon-id{{ $loop->iteration }}" class="icon-name txt_L">{{$u->name}}</label>                             
                                         </div>
@@ -72,7 +76,11 @@
                                         <div class="to-icon col-6 col-sm-4 h-25">
                                             <input id="stamp-icon-id{{ $loop->iteration }}" type="radio" class="praise-step-2" name="to_stamp" value="{{ $s->id }}">
                                             <label for="stamp-icon-id{{ $loop->iteration }}">
-                                                <img class="icon-circle" src="/storage/img/stamps/{{ $s->id }}.png">
+                                            @if(empty($s->image))
+                                            <img class="icon-circle" src="{{ asset('/img/stamp_icon_default.png')}}?<?php echo date("YmdHis");?>" alt="{{$s->name}}">
+                                            @else
+                                            <img class="icon-circle" src="data:image/png;base64,{{ $s->image }}" alt="{{$s->name}}">
+                                            @endif
                                             </label>
                                             <label for="stamp-icon-id{{ $loop->iteration }}" class="icon-name txt_L">{{$s->name}}</label>                             
                                         </div>

@@ -39,7 +39,7 @@ trait GetBoardsInfo{
     //ボードを取得
     public function getBoards($commentT,$goodT,$pushedT,int $whereId, int $bid)
     {
-        $LIMITCNT = 20; //取得する件数
+        $LIMITCNT = 12; //取得する件数
 
         $whereList = [
             //褒められた履歴抽出
@@ -72,7 +72,7 @@ trait GetBoardsInfo{
         };
 
 
-        $boards = $boards->select(DB::raw('b.id,COALESCE(g.cnt,0) as cnt,COALESCE(c.cnt,0) as cnt_comment,COALESCE(p.user_id,0) as pushed'))
+        $boards = $boards->select(DB::raw('b.id,COALESCE(g.cnt,0) as cnt,COALESCE(c.cnt,0) as cnt_comment,COALESCE(p.user_id,0) as pushed,b.image,b.image_message'))
                 ->orderBy('b.id', 'DESC')
                 ->take($LIMITCNT)
                 ->get();

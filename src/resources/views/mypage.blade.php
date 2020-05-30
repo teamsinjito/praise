@@ -26,7 +26,11 @@
                     @endif
                     <div class="my-icon-area ">
                         <div class="my-icon-name col-sm-10 col-9">
-                            <img class="my-icon" src="/storage/img/users/{{ Auth::user()->id }}.png?<?php echo date("YmdHis");?>">
+                            @if(empty(Auth::user()->image))
+                            <img class="my-icon" src="{{ asset('/img/user_icon_default.png')}}?<?php echo date("YmdHis");?>" alt="ユーザーアイコン">
+                            @else
+                            <img class="my-icon" src="data:image/png;base64,{{ Auth::user()->image }}" alt="ユーザーアイコン">
+                            @endif
                             <div class="mx-4">
                                 <span class="txt_L">{{Auth::user()->name}}</span>
                             </div>
@@ -69,11 +73,11 @@
 
                     <!-- 褒めた -->
                     <section class="menu-1 boardImage">
-                        <div class="my-board-area boardImage-IN w-100" data-page=1 data-flameimgpath = "{{ asset('/storage/img/templetes/board_frame.png') }}"></div>
+                        <div class="my-board-area boardImage-IN w-100" data-page=1 data-flameimgpath = "{{ asset('img/board_frame.png') }}"></div>
                     </section>
                     <!-- 褒められた -->
                     <section class="menu-2 boardImage">
-                        <div class="my-board-area boardImage-IN" data-page=1 data-flameimgpath = "{{ asset('/storage/img/templetes/board_frame.png') }}"></div>
+                        <div class="my-board-area boardImage-IN" data-page=1 data-flameimgpath = "{{ asset('/img/board_frame.png') }}"></div>
                     </section>
                     <!-- チャート -->
                     <section class="menu-3">
@@ -83,7 +87,7 @@
                     </section>
                     <!-- 相関図 -->
                     <section class="menu-4">
-                        <div class="my-diagram-area w-100" id="mydiagram" data-path="{{asset('storage/img/users/')}}"></div>
+                        <div class="my-diagram-area w-100" id="mydiagram" data-path="{{asset('/img/')}}"></div>
                     </section>
                 </main>
 
@@ -100,7 +104,11 @@
                         <div class="edit-title col-12 txt_L">Edit Profile</div>
                     </div>
                     <div class="my-icon-name border-bottom col-12 text-center py-3">
-                        <img class="my-icon border" src="/storage/img/users/{{ Auth::user()->id }}.png?<?php echo date("YmdHis");?>">
+                        @if(empty(Auth::user()->image))
+                        <img class="my-icon border" src="{{ asset('/img/user_icon_default.png')}}?<?php echo date(  "YmdHis");?>" alt="ユーザーアイコン">
+                        @else
+                        <img class="my-icon border" src="data:image/png;base64,{{ Auth::user()->image }}" alt="ユーザーアイコン">                       
+                        @endif
                         <label for="file" class="file-btn mt-auto">
                             <i class="fas fa-camera txt_M pl-2"></i>
                             <input type="file" id="file" accept="image/*" name="img"/>

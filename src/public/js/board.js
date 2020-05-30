@@ -1,21 +1,11 @@
 var jqxhr = null;
 
-$(document).on('click','.boardImgs',function(){ 
-    var imgSrc = $(this).attr('src');
-    
-    if(imgSrc.match('_1.png')){
-        imgSrc = imgSrc.replace('_1.png','_2.png');
-        $(this).next().css('display','none');
-        $(this).next().next().css('display','block');
-    }
-    else{
-        imgSrc = imgSrc.replace('_2.png','_1.png');
-        $(this).next().css('display','block');
-        $(this).next().next().css('display','none');
-    }
-    
-    $(this).attr('src',imgSrc);
-    
+$(document).on('click','.boardImgs',function(){
+    $(this).css('display','none');
+    $(this).siblings().css('display','block');
+
+    $(this).next().next().css('display','none');
+
 });
 
 $(document).on('mouseenter','.boardImage-IN > div',function(){ 
@@ -59,7 +49,8 @@ function makeBoardListHTML (data,appendToDom) {
 
         }
         //ボードimageレイヤー  ---------------------------------------
-        var imgLayer = $('<img>', {id:data[i].id,src: '/storage/img/boards/' + data[i].id + '_1.png',alt:'ボード画像',class:'w-100 boardImgs'});
+        var imgLayer = $('<img>', {id:data[i].id,src: 'data:image/png;base64,'+data[i].image,alt:'ボード画像',class:'w-100 boardImgs main'});
+        var imgCommentLayer = $('<img>', {src: 'data:image/png;base64,'+data[i].image_message,alt:'ボード画像',class:'w-100 boardImgs',style:'display:none'});
             
         //いいね数、コメント数レイヤー ---------------------------------------
         var goodCommentViewLayer = $('<div>', {class:'txt_S good-view-area',name:data[i].id});
@@ -85,8 +76,8 @@ function makeBoardListHTML (data,appendToDom) {
         
         //いいねボタン
         if (data[i].pushed > 0){
-            var goodBtn=$('<i>',{class:'fas fa-thumbs-up good pushed'}).css('color','#EE82EE').prop("disabled", true);
-            var goodBtnTxt=$('<span>',{class:'mx-3 good pushed',text:'Favorite!'}).css('color','#EE82EE').prop("disabled", true);
+            var goodBtn=$('<i>',{class:'fas fa-thumbs-up good pushed'}).css('color','#EE82EE');
+            var goodBtnTxt=$('<span>',{class:'mx-3 good pushed',text:'Favorite!'}).css('color','#EE82EE');
 
         }else{
             var goodBtn=$('<i>',{class:'fas fa-thumbs-up good'})
@@ -96,7 +87,7 @@ function makeBoardListHTML (data,appendToDom) {
         goodCommentBtnLayer.append(commentBtnPc,commentBtnPhone,commentBtnTxtPc,commentBtnTxtPhone,'<br>',goodBtn,goodBtnTxt);
         
         //ボードレイヤーに作成した全レイヤーを追加
-        boardLayer.append(imgLayer,goodCommentViewLayer,goodCommentBtnLayer); 
+        boardLayer.append(imgLayer,imgCommentLayer,goodCommentViewLayer,goodCommentBtnLayer); 
         
         //一度非表示にしてからファードインで表示(appendTo使用対策)
         $(boardLayer).appendTo(appendToDom).delay(600).fadeIn();
