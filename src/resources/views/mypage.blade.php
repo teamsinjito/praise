@@ -98,7 +98,7 @@
         <section class="edit-overlay">
             <div class="modal__bg"></div>
             <form method="POST" action="{{ route('mypage.edit') }}" enctype="multipart/form-data" >
-                @csrf
+                {{@csrf}}
                 <div class="modal__content">
                     <div class="header col-12 text-center py-3">
                         <div class="edit-title col-12 txt_L">Edit Profile</div>
