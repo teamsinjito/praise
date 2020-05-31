@@ -28,8 +28,8 @@
     @if(count($boardPaths) > 0)
         @foreach($boardPaths as $board)
             <div class="col-sm-6 col-lg-4 col-12 p-2 board">
-                <img id="{{$board->id}}" src="{{ asset('/img/'.$board->id. '_1.png') }}" alt="ボード画像" class="w-100 boardImgs main">
-                <img src="{{ asset('/img/'.$board->id. '_2.png') }}" alt="ボード画像" class="w-100 boardImgs" style="display: none">
+                <img id="{{$board->id}}" src="data:image/png;base64,{{ $board->image }}" alt="ボード画像" class="w-100 boardImgs main">
+                <img src="data:image/png;base64,{{ $board->image_message }}" alt="ボード画像" class="w-100 boardImgs" style="display: none">
                 <!-- いいね数 コメント数-->
                 <div class="txt_S good-view-area" name="{{$board->id}}">
                     <i class="fas fa-thumbs-up goodView"></i>
