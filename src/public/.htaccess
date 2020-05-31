@@ -19,4 +19,6 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
-php_value memory_limit 512M
+<IfModule mod_php7.c>
+    php_value memory_limit 512M
+</IfModule>
