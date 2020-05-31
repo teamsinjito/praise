@@ -21,4 +21,5 @@
 </IfModule>
 <IfModule mod_php7.c>
     php_value memory_limit 512M
+    php_value post_max_size 512M
 </IfModule>
