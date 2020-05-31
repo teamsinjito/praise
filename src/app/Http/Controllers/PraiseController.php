@@ -134,7 +134,7 @@ class PraiseController extends Controller
         // return redirect()->route('home')->with('praised', $board);
 
         DB::beginTransaction();
-
+        ini_set("memory_limit", "512M");
         try{
             $board = Board::create([
                 'from_user_id'=>$auth_user->id,
