@@ -47,6 +47,9 @@ class PraiseController extends Controller
     //褒めデータ保存
     public function praiseCreate(User $auth_user,PraiseCreate $request)
     {
+        // $startTime = microtime(true);
+        // $initialMemory = memory_get_usage();
+        ini_set("memory_limit", "512M");
         // 褒めるユーザレコード取得
         $to_usersImage = User::where('id','=',$request->to_user)->first();
         //使用するスタンプレコード取得
@@ -132,6 +135,12 @@ class PraiseController extends Controller
         ]);
 
         return redirect()->route('home')->with('praised', $board);
+
+        // $runningTime =  microtime(true) - $startTime;
+        // $usedMemory = (memory_get_peak_usage() - $initialMemory) / (1024 * 1024);
+
+        // var_dump('running time: ' . $runningTime . ' [s]'); // or var_dump()
+        // var_dump('used memory: ' . $usedMemory . ' [MB]'); // or var_dump()
 
     }
 
