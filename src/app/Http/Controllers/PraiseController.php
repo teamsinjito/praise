@@ -49,7 +49,7 @@ class PraiseController extends Controller
     {
         // $startTime = microtime(true);
         // $initialMemory = memory_get_usage();
-
+        ini_set("memory_limit", "512M");
         // 褒めるユーザレコード取得
         $to_usersImage = User::where('id','=',$request->to_user)->first();
         //使用するスタンプレコード取得
