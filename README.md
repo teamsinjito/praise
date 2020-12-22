@@ -9,7 +9,7 @@ PHP7.4,HTML5,CSS,JavaScript
 フレームワーク<br>
 Laravel 5.8 <br>
 
-ライブラリ
+ライブラリ <br>
 jQuery
 
 データベース<br>
