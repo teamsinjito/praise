@@ -38,7 +38,7 @@
                     <span class="comment-counter">{{$board->cnt_comment}}</span>
                 </div>
                 <!-- コメント追加、いいね追加ボタン -->
-                <div class="txt_M board-btn-area">
+                <div class="txt_S board-btn-area">
                     <i class="fas fa-comment-dots comment comment-pc"></i>
                     <i class="fas fa-comment-dots comment comment-phone"></i>
                     <span class="mx-3 comment comment-pc"> Comment!</span>

@@ -40,8 +40,5 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/maintenance/user', 'MaintenanceController@UserCreate')->name('user.create');//メンテナンス画面
     Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
     Route::post('/maintenance/passwordUpdate', 'MaintenanceController@PasswordUpdate')->name('password.update');
-    Route::get('/chat/{auth_user}', 'ChatController@showMainList')->name('chatForm');
-    Route::get('/chat/personal/{to_user}', 'ChatController@showChartForm')->name('chat.show');
-    Route::post('/chat/personal/{to_user}', 'ChatController@postChatForm')->name('chat.post');
 });
 

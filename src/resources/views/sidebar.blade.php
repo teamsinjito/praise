@@ -7,7 +7,7 @@
         @endif
     </div>
     <div class="sidebar-txt col-md-12 col-6 offset-md-0 offset-3">
-        <label class="py-3 txt_L iphone-only-txt">{{ Auth::user()->name }}</label>
+        <label class="py-3 txt_M iphone-only-txt">{{ Auth::user()->name }}</label>
     </div>
 </div>
 <div class="profile-area">
@@ -22,7 +22,6 @@
     <a href="{{ url('/') }}" class="txt_M"><i class="fas fa-stream"></i><span class="iphone-only-txt">&nbsp;Home</span></a>
     <a href="{{ route('praise.create', ['auth_user' => Auth::user()]) }}" class="txt_M"><i class="fas fa-award"></i><span class="iphone-only-txt">&nbsp;Praise</span></a>
     <a href="{{ route('mypage', ['auth_user' => Auth::user()]) }}" class="txt_M"><i class="fas fa-home"></i><span class="iphone-only-txt">&nbsp;MyPage</span></a>
-    <a href="{{ route('chatForm', ['auth_user' => Auth::user()]) }}" class="txt_M"><i class="fas fa-comments"></i><span class="iphone-only-txt">&nbsp;Chat</span></a>
     <a href="{{ route('maintenance') }}" class="txt_M"><i class="fas fa-user-shield"></i><span class="iphone-only-txt">&nbsp;Config</span></a>
 </div>
 

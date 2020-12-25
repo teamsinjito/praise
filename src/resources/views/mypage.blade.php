@@ -31,8 +31,8 @@
                             @else
                             <img class="my-icon" src="data:image/png;base64,{{ Auth::user()->image }}" alt="ユーザーアイコン">
                             @endif
-                            <div class="mx-4">
-                                <span class="txt_L">{{Auth::user()->name}}</span>
+                            <div class="mx-2">
+                                <span class="txt_M">{{Auth::user()->name}}</span>
                             </div>
                         </div>
                         <div class="chamge-my-profile col-sm-2 col-3 py-5">
@@ -118,13 +118,13 @@
                     <div class="name-area border-bottom col-12 text-center py-3">
                         <h2 class="col-sm-2 col-2 txt_M">name</h2>
                         <div class="col-sm-10 col-10">
-                            <input type="text" class="w-100 border border-0 txt_M" value="{{Auth::user()->name}}" name="name" minlength="1" maxlength="30">
+                            <input type="text" class="w-100 border border-0 txt_S" value="{{Auth::user()->name}}" name="name" minlength="1" maxlength="30">
                         </div>
                     </div>
                     <div class="profile-area border-bottom col-12 text-center py-3">
                         <h2 class="col-sm-2 col-2 txt_M">profile</h2>
                         <div class="col-sm-10 col-10">
-                            <textarea rows="1" cols="25" type="text" class="w-100 border border-0 txt_M" name="profile" maxlength="100">{{Auth::user()->profile}}</textarea>
+                            <textarea rows="1" cols="25" type="text" class="w-100 border border-0 txt_S" name="profile" maxlength="100">{{Auth::user()->profile}}</textarea>
                         </div>
                     </div>
                     <div class="footer col-sm-4 col-12 offset-sm-8 my-4">

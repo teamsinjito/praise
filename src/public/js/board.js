@@ -67,7 +67,7 @@ function makeBoardListHTML (data,appendToDom) {
         goodCommentViewLayer.append(goodIcon,goodCnt,commentIcon,commentCnt);
 
         //いいね、コメント追加ボタンレイヤー --------------------------------------
-        var goodCommentBtnLayer = $('<div>', {class:'txt_M board-btn-area'}); 
+        var goodCommentBtnLayer = $('<div>', {class:'txt_S board-btn-area'}); 
         //コメントボタン
         var commentBtnPc=$('<i>',{class:'fas fa-comment-dots comment comment-pc'});
         var commentBtnPhone=$('<i>',{class:'fas fa-comment-dots comment comment-phone'});

@@ -90,7 +90,7 @@ class PraiseController extends Controller
 
         //日付挿入
         $board_img ->text(Carbon::now(), 2400, 2300, function($font) {
-            $font->file(public_path('fonts/851MkPOP_002.ttf'));
+            $font->file(public_path('fonts/orginal.ttf'));
             $font->size(140);
             $font->align('center');
             $font->color('#444444');
@@ -98,7 +98,7 @@ class PraiseController extends Controller
         }); 
         //日付挿入
         $board_img_message ->text(Carbon::now(), 2400, 2300, function($font) {
-            $font->file(public_path('fonts/851MkPOP_002.ttf'));
+            $font->file(public_path('fonts/orginal.ttf'));
             $font->size(140);
             $font->align('center');
             $font->color('#444444');
@@ -117,7 +117,7 @@ class PraiseController extends Controller
         }
 
         $board_img_message ->text($message, 1680, 1210, function($font) {
-            $font->file(public_path('fonts/851MkPOP_002.ttf'));
+            $font->file(public_path('fonts/orginal.ttf'));
             $font->size(220);
             $font->align('center');
             $font->color('#444444');

@@ -163,7 +163,7 @@ $('#mypage-menu-list > li > .chart').one('click', function() {
                     backgroundColor: 'RGBA(225,95,150, 0.5)',
                     borderColor: 'RGBA(225,95,150, 1)',
                     borderWidth: 1,
-                    pointBackgroundColor: 'RGB(46,106,177)'
+                    pointBackgroundColor: 'RGB(46,106,177)',
                 },
                 {
                     label: '貰ったスタンプ数',
@@ -171,7 +171,7 @@ $('#mypage-menu-list > li > .chart').one('click', function() {
                     backgroundColor: 'RGBA(115,255,25, 0.5)',
                     borderColor: 'RGBA(115,255,25, 1)',
                     borderWidth: 1,
-                    pointBackgroundColor: 'RGB(46,106,177)'
+                    pointBackgroundColor: 'RGB(46,106,177)',
                 }
             ]
             },
@@ -180,15 +180,22 @@ $('#mypage-menu-list > li > .chart').one('click', function() {
                 //     display: true,
                 // },
                 maintainAspectRatio: false,
-
+                legend: {
+                    labels: {
+                        // This more specific font property overrides the global property
+                        fontFamily: 'orginal'
+                    }
+                },
                 scale:{
                     pointLabels: {
                         fontColor: 'var(--main-fn-color-black)',
                         fontSize: 14,
-                        fontFamily: "'Bradley Hand','Bradley Hand','Segoe Print','HanziPen TC','ヒラギノ角ゴシック','Hiragino Sans','ＭＳ ゴシック',sans-serif",
+                        // fontFamily: "'Bradley Hand','Bradley Hand','Segoe Print','HanziPen TC','ヒラギノ角ゴシック','Hiragino Sans','ＭＳ ゴシック',sans-serif",
+                        fontFamily: "orginal",
                     },
                     ticks:{
                         suggestedMin: 0,
+                        fontFamily: "orginal",
                         suggestedMax: maxCnt,
                         stepSize: stepSize,
                         backdropColor:'rgba(255,255,255,0)',
@@ -278,7 +285,8 @@ $('#mypage-menu-list > li > .diagram').one('click', function() {
                 borderWidth:0,
                 font:{
                     color: '#444444',
-                    face: 'Bradley Hand,Segoe Print,HanziPen TC,ヒラギノ角ゴシック,Hiragino Sans,ＭＳ ゴシック',
+                    // face: 'Bradley Hand,Segoe Print,HanziPen TC,ヒラギノ角ゴシック,Hiragino Sans,ＭＳ ゴシック',
+                    face: 'orginal',
                     size: 16,
                 },
                 color:{
@@ -295,7 +303,8 @@ $('#mypage-menu-list > li > .diagram').one('click', function() {
                 font:{
                     color: '#444444',
                     size: 14, // px
-                    face: 'Bradley Hand,Segoe Print,HanziPen TC,ヒラギノ角ゴシック,Hiragino Sans,ＭＳ ゴシック',
+                    // face: 'Bradley Hand,Segoe Print,HanziPen TC,ヒラギノ角ゴシック,Hiragino Sans,ＭＳ ゴシック',
+                    face: 'orginal',
                     background: 'none',
                     strokeWidth: 0, // px
                 }
