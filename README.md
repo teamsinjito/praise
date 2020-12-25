@@ -2,6 +2,8 @@
 褒めシステム
 http://glacial-oasis-54503.herokuapp.com/
 
+![Uploading praise_キャプチャ.png…]()
+
 ログイン<br>
 E-mail:test@email.com <br>
 pass:test12345
