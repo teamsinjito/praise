@@ -15,7 +15,7 @@
         <!-- コメント投稿 -->
         <div class="comment-add-row-area">
             <div class="comment-add-row my-2">
-                <div class="comment-user-icon col-lg-3 col-2 pr-1">
+                <div class="comment-user-icon col-xl-3 col-2 pr-1">
                     @if(empty(Auth::user()->image))
                     <img class="my-icon border w-100" src="{{ asset('/img/user_icon_default.png')}}?<?php echo date("YmdHis");?>" alt="ユーザーアイコン">
                     @else
@@ -25,7 +25,7 @@
                 <div class="comment-user-comment col pl-0">
                     <div class="comment-user-name txt_S mb-0">{{Auth::user()->name}}</div>
                     <div class="cp_iptxt col-12 text-center">
-                        <input type="text" placeholder="Comment..." class="txt_M limited comment" name="comment" maxlength="30" value="{{ old('message') }}">
+                        <input type="text" placeholder="Comment..." class="txt_S limited comment" name="comment" maxlength="30" value="{{ old('message') }}">
                     </div>
                 </div>
                 <div class="footer col-8 offset-2 my-4" data-boardid="">

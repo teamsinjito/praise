@@ -89,14 +89,14 @@ function makeCommentListHTML (data) {
             userImg='<img class="my-icon border w-100" src="/img/user_icon_default.png" alt:"ユーザーアイコン">'
         }
         $('.comment-list').append('<div class="comment-area-row my-2">'+
-        '<div class="comment-user-icon col-lg-3 col-2 pr-1">'+
+        '<div class="comment-user-icon col-xl-3 col-2 pr-1">'+
         userImg+
         '</div>'+
         '<div class="comment-user-comment col pl-0">'+
         '<div class="comment-user-name txt_S mb-0">'+data[i].name+'</div>'+
-        '<div class="txt_M pl-3">'+data[i].comment+'</div>'+
+        '<div class="txt_S pl-3">'+data[i].comment+'</div>'+
         '</div>'+
-        '<div class="comment-footer-row offset-6">'+
+        '<div class="comment-footer-row offset-5">'+
         '<div class="txt_S">'+data[i].created_at+'</div>'+
         '</div>'+
         '</div>'

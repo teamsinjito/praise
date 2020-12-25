@@ -17,7 +17,7 @@
 
 }@media screen and (max-width:767px){
     /*　画面サイズが768pxから1024pxまではここを読み込む　*/
-    body {background-image: url("../../img/bg_small.png");}
+    body {background-image: url("../../img/bg_small.jpg");}
     aside{
         display: none;
     }
@@ -44,7 +44,7 @@
 
 @media screen and (min-width:768px){
     /*　画面サイズが768pxから1024pxまではここを読み込む　*/
-    body {background-image: url("../../img/bg.png");}
+    body {background-image: url("../../img/bg.jpg");}
 
     .txt_XL{font-size: 34px;}
     .txt_L{font-size: 30px;}
@@ -56,7 +56,7 @@
         display: none;
     }
     .profile-area{
-        height: 70px;
+        height: 50px;
     }
 }
 @media screen and (min-width:1500px){
@@ -76,6 +76,14 @@
 .title_txt{
     font-size: 30px;
 }
+@font-face {
+    font-family: 'orginal';
+    src: url('/fonts/orginal.ttf') format('truetype');;
+}
+@font-face {
+    font-family: 'myfont-password';
+    src: url('/fonts/Baskerville-Regular.ttf') format('truetype');;
+}
 html{
     height:100%;
 }
@@ -84,8 +92,9 @@ body{
     background-repeat: no-repeat;
     height: 100%;
     background-attachment: fixed;
+    font-family: 'orginal','Bradley Hand','Bradley Hand','Segoe Print','HanziPen TC','ヒラギノ角ゴシック','Hiragino Sans','ＭＳ ゴシック',comic Sans MS,sans-serif;;
     /* font-family:  comic Sans MS; */
-    font-family: 'Bradley Hand','Bradley Hand','Segoe Print','HanziPen TC','ヒラギノ角ゴシック','Hiragino Sans','ＭＳ ゴシック',sans-serif;
+    /* font-family: 'Bradley Hand','Bradley Hand','Segoe Print','HanziPen TC','ヒラギノ角ゴシック','Hiragino Sans','ＭＳ ゴシック',sans-serif; */
     -webkit-appearance: none;
     -webkit-text-size-adjust: 100%;
     height: 100%;
@@ -147,8 +156,11 @@ body{
     border: none;
     margin: 30px 0;
 }
+.form-contents > form{
+    position: relative;
+}
 .form-contents-area{
-    margin-bottom: 30px;
+    margin-top: 60px;
 }
 .login-form-control{
     color: var(--main-cm-color-white);
@@ -173,7 +185,8 @@ body{
 	display:		inline-block;
     cursor:			pointer;
     /* text-align: center; */
-	position:		relative;
+    position:		relative;
+    margin-top: 30px;
 }
 
 /* ボックスのスタイル */
@@ -232,6 +245,15 @@ body{
         transform: rotate(360deg); 
     }
 }
+.error-form-group{
+    position: absolute;
+    left: 0;
+    color: red;
+
+}
+#password{
+    font-family: 'myfont-password'!important;
+}
 /* ------------ここまでログイン画面--------- */
 
 
@@ -262,6 +284,11 @@ body{
 }
 .profile-area{
     overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.profile-area::-webkit-scrollbar {
+    display:none;
 }
 .side-color > label,
 .side-color > .praise_cnt > label,

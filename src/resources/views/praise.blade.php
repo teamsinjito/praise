@@ -42,7 +42,7 @@
                         </div>
                         @endif
                         <main class="praise-steps">
-                            <h1 class="border-dark border-bottom text-center my-4">誰を褒める？</h1>
+                            <h1 class="border-dark txt_M border-bottom text-center my-4">誰を褒める？</h1>
                             <div class="to-page-area common-page-area-size text-center w-100 my-3">
                                 <div class="pre btn-common pager-btn txt_XL col-sm-1"><</div>
                                 <!-- ユーザー選択 -->
@@ -60,7 +60,7 @@
                                             <img class="icon-circle" src="data:image/png;base64,{{ $u->image }}" alt="{{$u->name}}">
                                             @endif
                                             </label>
-                                            <label for="user-icon-id{{ $loop->iteration }}" class="icon-name txt_L">{{$u->name}}</label>                             
+                                            <label for="user-icon-id{{ $loop->iteration }}" class="icon-name txt_M">{{$u->name}}</label>                             
                                         </div>
                                         @if($loop->iteration % 6 == 0 || $loop->remaining == 0)
                                         </div>
@@ -77,12 +77,12 @@
                                             <input id="stamp-icon-id{{ $loop->iteration }}" type="radio" class="praise-step-2" name="to_stamp" value="{{ $s->id }}">
                                             <label for="stamp-icon-id{{ $loop->iteration }}">
                                             @if(empty($s->image))
-                                            <img class="icon-circle" src="{{ asset('/img/stamp_icon_default.png')}}?<?php echo date("YmdHis");?>" alt="{{$s->name}}">
+                                            <img class="icon-circle icon-circle-s" src="{{ asset('/img/stamp_icon_default.png')}}?<?php echo date("YmdHis");?>" alt="{{$s->name}}">
                                             @else
-                                            <img class="icon-circle" src="data:image/png;base64,{{ $s->image }}" alt="{{$s->name}}">
+                                            <img class="icon-circle icon-circle-s" src="data:image/png;base64,{{ $s->image }}" alt="{{$s->name}}">
                                             @endif
                                             </label>
-                                            <label for="stamp-icon-id{{ $loop->iteration }}" class="icon-name txt_L">{{$s->name}}</label>                             
+                                            <label for="stamp-icon-id{{ $loop->iteration }}" class="icon-name txt_M">{{$s->name}}</label>                             
                                         </div>
                                         @if($loop->iteration % 6 == 0 || $loop->remaining == 0)
                                         </div>
@@ -93,7 +93,7 @@
                                 <section class="to-icon-area col-sm-10 col-12" id="praise-step-3">
                                     <div class="section-page w-100">
                                         <div class="cp_iptxt col-12 text-center py-5">
-                                            <input type="text" placeholder="Message..." class="txt_L limited" name="message" maxlength="30" value="{{ old('message') }}">
+                                            <input type="text" placeholder="Message..." class="txt_M limited" name="message" maxlength="30" value="{{ old('message') }}">
                                         </div>
                                     </div>
                                 </section>
@@ -102,7 +102,7 @@
                             <div class="step-btn-area col-sm-4 col-12 offset-sm-8">
                                 <button type="button" class="pre-step-btn btn-common w-100 txt_L" disabled>Prev</button>
                                 <button type="button" class="next-step-btn btn-common w-100 txt_L" disabled>Next</button>
-                                <button type="button" class="btn-common w-100 txt_L" id="praise-sabmit-btn">Finish!</button>
+                                <button type="button" class="btn-common w-100 txt_L" id="praise-sabmit-btn">Send</button>
                             </div>
                         </main>
                     </form>

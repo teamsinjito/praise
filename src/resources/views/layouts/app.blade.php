@@ -63,7 +63,7 @@
                             @else
                             <img class="logo-user-icon"src="data:image/png;base64,{{ Auth::user()->image }}" style="width: 40px;">
                             @endif
-                            <span>
+                            <span class="txt_M">
                                 {{ Auth::user()->name }}
                             </span>
                         </a>
@@ -74,7 +74,7 @@
                         <a class="nav-link title_txt  header-fn-color my-auto text-center"  href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
-                            {{ __('Sign out') }}
+                            <span class="txt_M">{{ __('Sign out') }}</span>
                         </a>
 
                         

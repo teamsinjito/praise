@@ -29,16 +29,17 @@
 }
 .progress{
     border-radius: 0px;
-    background-color:var(--main-fn-color-black);
+    background-color:var(--main-cm-color-white);
     height: 0.4rem;
 }
 .progress-bar{
-    background-color:#EE82EE;
+    /* background-color:#EE82EE; */
+    background-color:var(--main-fn-color-black);
 }
 .progress-circle{
     width: calc(50px - 0.2vw);
     height: calc(50px - 0.2vw); 
-    background-color:var(--main-fn-color-black);
+    background-color:var(--main-cm-color-white);
     border-radius: 50%;
 }
 /* #progress-bar-id > .icon-area:first-child{
@@ -78,11 +79,15 @@
 }
   /* 選択されたラジオボタンの画像の背景をオレンジ色に変える */
 .to-icon input[type="radio"]:checked + label >.icon-circle{
-    background: #EE82EE;
+    /* background: #EE82EE; */
+    background: var(--main-cm-color-white);
 }
 .icon-circle {
     width: 50%;
     border-radius: 50%;
+}
+.icon-circle-s {
+    border-radius: 0%!important;
 }
 .icon-name{
     padding-top: -40px;
