@@ -2,6 +2,7 @@
 褒めシステム
 http://glacial-oasis-54503.herokuapp.com/
 
+画面キャプチャ　その１
 ![praise_キャプチャ](https://user-images.githubusercontent.com/68136885/103121638-6fe6e480-46c0-11eb-8437-25fc55037bcc.png)
 
 ログイン<br>
